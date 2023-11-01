@@ -23,26 +23,38 @@
         </nav>
       </header>
       <section id="citiesService-container">
-        <div id="citiesImg">
+        <!-- <div id="citiesImg">
           <img src="media/img/stockholm.jpg" alt="photo of stockholm city" />
-        </div>
+        </div> -->
         <div id="cities-text-container">
-          <h1>Cities <span>service</span></h1>
+
+          <div class="cities-title">
+            <span class="cities-heading1">Cities</span>
+            <span class="cities-heading2">service</span>
+          </div>
+
           <p>Search or make changes to the Cities API on this page.</p>
 
-          <form action="">
+          <form id="cities-form1">
             <legend>Search</legend>
             <button type="submit">
               <i class="bi bi-search" aria-hidden="true"></i>
             </button>
             <input id="search" name="city" placeholder="Gothenburg.." />
-            <br />
-            <legend>Add new city</legend>
-            <input name="newCity" placeholder="Stockholm.." />
-            <input name="population" placeholder="Population" />
           </form>
         </div>
       </section>
+
+
+    <section id="cities-list">
+
+    </section>
+      <br />
+      <legend>Add new city</legend>
+      <input name="newCity" placeholder="Stockholm.." />
+      <input name="population" placeholder="Population" />
+    </form>
+
     </div>
     <script src="javaScript/weather.js"></script>
     <script src="javaScript/cities.js"></script>
