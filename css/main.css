@@ -10,9 +10,7 @@ body{
     margin: 0;
 }
 
-#cities-text-container span{
-    white-space:nowrap;
-}
+/*==============================*/
 
 #background-container{
     background: url("/media/img/stockholm.jpg");
@@ -20,6 +18,10 @@ body{
     background-position: center;
     height: 100svh;
 }
+
+/*==============================*/
+/*============ Nav =============*/
+/*==============================*/
 
 /* Heading, meny */
 header{
@@ -39,13 +41,14 @@ nav{
 
 nav h1{
     color: #393939;
-    font-family: Kodchasan;
+    font-family: Kodchasan, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
 
+/* The list part with links, about weather and cities */
 nav #menu{
     /* background-color: pink; */
     padding-left: 0;
@@ -60,6 +63,14 @@ a{
     font-family: Kodchasan, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-decoration: none;
     font-size: 16px;
+}
+
+/*==============================*/
+/*========= INTRO TEXT =========*/
+/*==============================*/
+
+#cities-text-container span{
+    white-space:nowrap;
 }
 
 /* Hela första sidan förutom naven */
@@ -111,41 +122,44 @@ p{
     margin-bottom: auto;
 }
 
+/*==============================*/
+/*==============================*/
+/*==============================*/
+
+/* */
 /* Eller bara form */
 #cities-form1{
     /* background-color: rgb(113, 174, 227); */
-    /* position: relative; */
-    /* display: block; */
     width: 100%;
     margin-top: auto;
 }
 
+/* Description text*/
 legend{
-    /* background-color: aqua; */
-    font-family: MergeOne;
+    font-family: MergeOne, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-
-input, #cities{
-    color: rgba(175, 33, 33, 0.5);
-    background: rgba(252, 244, 244, 0.51);
+input, #search{
+    /* color: rgba(175, 33, 33, 0.5); */
+    background: rgba(255, 255, 255, 0.835);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     border: 1px solid #FFF;
     border-radius: 24px;
-    padding: 8px 40px 8px 20px;
     width: 82%;
     max-width: 426px;
-    font-family: MergeOne;
+    padding: 8px 40px 8px 30px;
+    margin: 10px 00;
+    /* margin-bottom: 3vh; */
+    font-family: MergeOne, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     display: block;
-    margin: 10px 00;
     position: relative;
-    margin-bottom: 3vh;
+
 }
 
-#cities{
-    align-self: center;
-    background-color: aqua;
+/* Drop-down field searching for one or all cities*/
+#search{
+    background: rgba(255, 255, 255, 0.937);
     padding-right: 10px;
 
 }
@@ -156,19 +170,30 @@ input:focus{
     background-color: rgba(255, 255, 255, 0.678);
 }
 
+#search-container{
+    background-color: rgba(255, 218, 185, 0.761);
+    display: flex;
+    align-content: baseline;
+    justify-content: space-between;
+
+}
+
 button{
     /* background-color: transparent; */
-    color: rgba(0, 0, 0, 0.347);
+    /* color: rgba(0, 0, 0, 0.347); */
+    /* align-self: baseline;
+    justify-self: flex-end; */
     /* position: absolute; */
     /* top: 29px; */
-    z-index: 2;
+    /* z-index: 2; */
     /* top:2vh; */
     /* left: 289px; */
      /* left: 80vw; */
-    width: 30px;
-    border-radius: 50px;
+     /* margin: 10px; */
 
-    font-size: 20px;
+    width: 47px;
+    height: 47px;
+    border-radius: 15px;
     cursor: pointer;
     border: none;
 
@@ -177,6 +202,11 @@ button{
 button:hover{
     color: black;
 }
+
+
+/*==============================*/
+/*========= Responsive =========*/
+/*==============================*/
 
  @media screen and (max-width: 373px) {
 
@@ -226,7 +256,9 @@ nav h1{
 }
 
 
-
+/*==============================*/
+/*============ FONTS ===========*/
+/*==============================*/
 
 @font-face {
     font-family: Kodchasan;

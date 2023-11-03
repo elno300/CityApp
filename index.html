@@ -11,6 +11,7 @@
     />
   </head>
   <body>
+    <!-- For the background image to cover the entire background(and also behind the nav-bar/header) -->
     <div id="background-container">
       <header>
         <nav>
@@ -35,13 +36,14 @@
           <p>Search or make changes to the Cities API on this page.</p>
 
           <form id="cities-form1">
-            <legend>Search</legend>
             <!-- <button type="submit">
               <i class="bi bi-search" aria-hidden="true"></i>
             </button>
             <input id="search" name="city" placeholder="Gothenburg.." /> -->
-            <fieldset id="fieldset-">
-              <select id="cities" name="cities">
+            <!-- <fieldset id="search-container"> -->
+            <legend>Search</legend>
+            <div id="search-container">
+              <select id="search" name="search">
                 <option value="selectAll">Select all</option>
                 <option value="stockholm">Stockholm</option>
                 <option value="göteborg">Göteborg</option>
@@ -49,12 +51,11 @@
               <button type="submit">
                 <i class="bi bi-search" aria-hidden="true"></i>
               </button>
-            </fieldset>
-            <fieldset>
-              <legend>Add new city</legend>
-              <input name="newCity" placeholder="Stockholm.." />
-              <input name="population" placeholder="Population" />
-            </fieldset>
+            </div>
+            <!-- </fieldset> -->
+            <legend>Add new city</legend>
+            <input class="addNew" name="newCity" placeholder="Stockholm.." />
+            <input class="addNew" name="population" placeholder="Population" />
           </form>
         </div>
       </section>
