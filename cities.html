@@ -27,7 +27,6 @@
           <img src="media/img/stockholm.jpg" alt="photo of stockholm city" />
         </div> -->
         <div id="cities-text-container">
-
           <div class="cities-title">
             <span class="cities-heading1">Cities</span>
             <span class="cities-heading2">service</span>
@@ -37,24 +36,35 @@
 
           <form id="cities-form1">
             <legend>Search</legend>
-            <button type="submit">
+            <!-- <button type="submit">
               <i class="bi bi-search" aria-hidden="true"></i>
             </button>
-            <input id="search" name="city" placeholder="Gothenburg.." />
+            <input id="search" name="city" placeholder="Gothenburg.." /> -->
+            <fieldset id="fieldset-">
+              <select id="cities" name="cities">
+                <option value="selectAll">Select all</option>
+                <option value="stockholm">Stockholm</option>
+                <option value="göteborg">Göteborg</option>
+              </select>
+              <button type="submit">
+                <i class="bi bi-search" aria-hidden="true"></i>
+              </button>
+            </fieldset>
+            <fieldset>
+              <legend>Add new city</legend>
+              <input name="newCity" placeholder="Stockholm.." />
+              <input name="population" placeholder="Population" />
+            </fieldset>
           </form>
         </div>
       </section>
 
-
-    <section id="cities-list">
-
-    </section>
+      <section id="cities-list"></section>
       <br />
-      <legend>Add new city</legend>
+      <!-- <legend>Add new city</legend>
       <input name="newCity" placeholder="Stockholm.." />
       <input name="population" placeholder="Population" />
-    </form>
-
+    </form> -->
     </div>
     <script src="javaScript/weather.js"></script>
     <script src="javaScript/cities.js"></script>
