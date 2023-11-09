@@ -40,55 +40,6 @@ let populateDropDownMenu = () =>{
 populateDropDownMenu()
 
 
-// Städer
-let citiesToList = ""
-
-// Button click funktion söker efter information för den staden eller de valda städerna(select all).
-// function searchCities(){
-//     populateDropDownMenu() // Uppdaterar drop-down menyn
-
-
-//     selectedCityId = document.getElementById('search').value
-
-//     fetch('https://avancera.app/cities/'+ selectedCityId)
-//     .then((response)=> response.json())
-//     .then((result) => {
-
-//         console.log(selectedCityId)
-
-//         if(!selectedCityId){
-
-//             for(i=0; i<result.length; i++){
-
-//                 citiesToList+=
-//                 `<div class="citieList" id="citieList${[i]}" >
-//                 <h2>${result[i].name}<h2>
-//                 <p>Population: ${result[i].population}<p>
-//                 </div>`
-
-//                 geoLocationPromise = findGeoLocation(result[i].name)
-//                 .then((lonLatResult) => {
-
-//                     console.log(lonLatResult + "hhär är resultatet")
-//                 })
-//             }}
-
-//         else{
-
-//             citiesToList =
-//             `<div class="citieList" >
-//             <h2>${result.name}<h2>
-//             <p>Population: ${result.population}<p>
-//             </div>`
-
-//             geoLocationPromise = findGeoLocation(result.name)
-
-//         }
-
-//         listOfSelected.innerHTML = citiesToList
-
-// })}
-
 // Api för att hämta longitud och latitud
 // https://apidocs.geoapify.com/playground/geocoding/
 
@@ -118,6 +69,7 @@ function findGeoLocation(cityName){
 // ...
 
 function searchCities() {
+    document.getElementById('cities-list').style.display = "inline"
     populateDropDownMenu();
 
     selectedCityId = document.getElementById('search').value;
@@ -127,11 +79,15 @@ function searchCities() {
         .then(result => {
             console.log(selectedCityId);
 
+            let citiesToList = ""
             if (!selectedCityId) {
+
                 Promise.all(result.map(city => findGeoLocation(city.name)))
+
                     .then(geoLocations => {
                         for (let i = 0; i < result.length; i++) {
                             const { latitude, longitude } = geoLocations[i];
+
                             citiesToList +=
                                 `<div class="citieList" id="citieList${[i]}" >
                                 <h2>${result[i].name}<h2>
@@ -139,6 +95,7 @@ function searchCities() {
                                 <p>Latitude: ${latitude}, Longitude: ${longitude}</p>
                                 </div>`;
                         }
+
                         listOfSelected.innerHTML = citiesToList;
                     });
 
