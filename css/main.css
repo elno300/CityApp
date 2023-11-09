@@ -10,13 +10,33 @@ body{
     margin: 0;
 }
 
+h2{
+    color: #000;
+    font-family: MergeOne;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+}
+
+.citieList p{
+    margin-top: 1px;
+    padding-top: 0;
+    font-family: MergeOne;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 /*==============================*/
 
 #background-container{
     background: url("/media/img/stockholm.jpg");
     background-size: cover;
     background-position: center;
-    height: 100svh;
+    height: 100vh;
 }
 
 /*==============================*/
@@ -69,31 +89,33 @@ a{
 /*========= INTRO TEXT =========*/
 /*==============================*/
 
-#cities-text-container span{
-    white-space:nowrap;
-}
 
 /* Hela första sidan förutom naven */
-#citiesService-container{
+#cities-intro-container{
     /* background-color: rgb(27, 86, 86); */
     height: 90svh;
+    min-height: 530px;
+    /* width: 90vw; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 530px;
 }
 
-#cities-text-container {
+#cities-intro-text-wrapper {
     /* background-color: rgb(154, 112, 216); */
+    width: 90vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 90vw;
     justify-items:end;
-    }
+}
+
+#cities-intro-text-wrapper span{
+    white-space:nowrap;
+}
 
 /* Cities service -  Title/heading container*/
-.cities-title{
+.cities-heading-wrapper{
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -111,27 +133,29 @@ a{
 }
 
 p{
-    /* background-color: rgb(197, 170, 170); */
-    margin-top: 0.75rem;
+    /* background-color: rgb(228, 215, 215); */
     color: #000;
-    width: 90vw; /*KONSTIGT*/
+    width: 100%;
+    margin-top: 0.75rem;
+    margin-bottom: auto;
+    padding: 0;
     font-family: Jura;
     font-size: 24px;
-    padding: 0;
     flex-grow: 1;
-    margin-bottom: auto;
+
 }
 
 /*==============================*/
-/*==============================*/
+/*============ FORM ============*/
 /*==============================*/
 
 /* */
 /* Eller bara form */
 #cities-form1{
     /* background-color: rgb(113, 174, 227); */
-    width: 100%;
+    width: 90vw;
     margin-top: auto;
+    max-width: 426px;
 }
 
 /* Description text*/
@@ -139,21 +163,17 @@ legend{
     font-family: MergeOne, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-input, #search{
-    /* color: rgba(175, 33, 33, 0.5); */
+ .addNew, #search{
     background: rgba(255, 255, 255, 0.835);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     border: 1px solid #FFF;
     border-radius: 24px;
-    width: 82%;
-    max-width: 426px;
     padding: 8px 40px 8px 30px;
     margin: 10px 00;
-    /* margin-bottom: 3vh; */
     font-family: MergeOne, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
-    display: block;
     position: relative;
+
 
 }
 
@@ -161,47 +181,63 @@ input, #search{
 #search{
     background: rgba(255, 255, 255, 0.937);
     padding-right: 10px;
-
-}
-
-input:focus{
-    outline: none;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    background-color: rgba(255, 255, 255, 0.678);
-}
-
-#search-container{
-    background-color: rgba(255, 218, 185, 0.761);
-    display: flex;
-    align-content: baseline;
-    justify-content: space-between;
-
+    width: 100%;
+    /* background-position: left 20px center; */
 }
 
 button{
     /* background-color: transparent; */
-    /* color: rgba(0, 0, 0, 0.347); */
-    /* align-self: baseline;
-    justify-self: flex-end; */
-    /* position: absolute; */
-    /* top: 29px; */
-    /* z-index: 2; */
-    /* top:2vh; */
-    /* left: 289px; */
-     /* left: 80vw; */
-     /* margin: 10px; */
-
-    width: 47px;
+    margin-left: 10px;
+    width: 50px;
     height: 47px;
+    margin-top: 10px;
     border-radius: 15px;
     cursor: pointer;
     border: none;
-
 }
 
 button:hover{
     color: black;
 }
+
+#search-wrapper{
+    /* background-color: rgba(123, 94, 68, 0.761); */
+    width: 100%;
+    display: flex;
+    justify-content:flex-end;
+}
+
+#addNew-wrapper{
+    /* background-color: brown; */
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+}
+
+
+#citiesInfo{
+    background: #FDE0D8;
+    display: flex;
+    justify-content: center;
+    /* display: none; */
+}
+
+/* All info om städerna */
+#citiesInfoContainer{
+    border-radius: 24px;
+    border: 1px solid #FFF;
+    background: #FDE0D8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    width: 90vw;
+    padding: 5vw;
+
+}
+
+/* input:focus{
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.678);
+} */
 
 
 /*==============================*/
@@ -231,13 +267,14 @@ nav h1{
     background-color: aquamarine;
 }
 
-.cities-title{
+.cities-heading-wrapper{
     background-color: violet;
     max-width: 398px;
     /* align-content: center; */
 }
 .cities-heading1, .cities-heading2{
     font-size: 6.5em;
+    line-height: 75px;
 }
 
 
@@ -245,14 +282,17 @@ nav h1{
 
 @media  screen and (min-width: 700px) {
 
-    .cities-title{
+    .cities-heading-wrapper{
         background-color: violet;
         width: 70vw;
         /* align-content: center; */
     }
     .cities-heading1, .cities-heading2{
         font-size: 100px;
+        line-height: 80px;
     }
+
+
 }
 
 

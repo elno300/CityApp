@@ -1,0 +1,132 @@
+body{
+    margin: auto;
+    background-color:rgb(10, 12, 31);
+}
+
+
+
+
+/*==============================*/
+/*============ Nav =============*/
+/*==============================*/
+
+/* Heading, meny */
+header{
+    display: flex;
+    justify-content: center;
+}
+
+nav{
+
+    width: 100vw;
+    height: 67px;
+    padding: 00 5vw ;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    display: flex;
+    justify-content:space-between;
+    align-items: baseline;
+}
+
+nav h1{
+    color: pink;
+    font-family: Kodchasan, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* The list part with links, about weather and cities */
+nav #menu{
+    /* background-color: pink; */
+    padding-left: 0;
+    display: flex; /*Makes the list aligned*/
+    gap: 8px;
+    padding-top: 20px;
+    list-style-type: none;
+}
+
+a{
+    color: pink;
+    font-family: Kodchasan, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+/* ===================== */
+
+section{
+    background-color:rgb(10, 12, 31);
+    /* background-image: url(media/pexels-eberhard-grossgasteiger-629167.jpg); */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    z-index: 0;
+}
+
+/* section::before{
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(rgb(249, 225, 9),rgb(226, 18, 181));
+    border-radius: 50%;
+    transform: translate(-250px,-120px);
+} */
+
+.transparentWindow{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    /* background-color: antiquewhite; */
+    background:rgba(240, 248, 255, 0.204);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(225, 225, 225, 0.62);
+    border-right: 1px solid rgba(240, 248, 255, 0.204);
+    border-bottom: 1px solid rgba(red, green, blue, 0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(25px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+
+#weather-search-btn{
+    /* background-color: transparent; */
+    margin-left: 10px;
+    width: 50px;
+    height: 47px;
+    margin-top: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+}
+
+#weather-search-btn:hover{
+    color: black;
+}
+
+
+@font-face {
+    font-family: Kodchasan;
+    src: url(/media/fonts/Kodchasan/Kodchasan-Light.ttf);
+}
+
+@font-face {
+    font-family: MergeOne;
+    src: url(/media/fonts/MergeOne_FontFamily/MergeOne400.ttf);
+}
+
+
+@font-face {
+    font-family: Jura;
+    src: url(/media/fonts/Jura/Jura-VariableFont_wght.ttf)
+}

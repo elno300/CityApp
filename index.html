@@ -9,6 +9,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
   </head>
   <body>
     <!-- For the background image to cover the entire background(and also behind the nav-bar/header) -->
@@ -23,12 +24,12 @@
           </ul>
         </nav>
       </header>
-      <section id="citiesService-container">
+      <section id="cities-intro-container">
         <!-- <div id="citiesImg">
           <img src="media/img/stockholm.jpg" alt="photo of stockholm city" />
         </div> -->
-        <div id="cities-text-container">
-          <div class="cities-title">
+        <div id="cities-intro-text-wrapper">
+          <div class="cities-heading-wrapper">
             <span class="cities-heading1">Cities</span>
             <span class="cities-heading2">service</span>
           </div>
@@ -42,26 +43,66 @@
             <input id="search" name="city" placeholder="Gothenburg.." /> -->
             <!-- <fieldset id="search-container"> -->
             <legend>Search</legend>
-            <div id="search-container">
-              <select id="search" name="search">
+            <!-- <div id="search-wrapper"> -->
+              <!-- <select id="search" name="search">
                 <option value="selectAll">Select all</option>
                 <option value="stockholm">Stockholm</option>
                 <option value="göteborg">Göteborg</option>
-              </select>
-              <button type="submit">
+              </select> -->
+
+              <form>
+                Choose a city
+                <select name="search" id="search" id="search-wrapper">
+                  <!-- <option value="">Select all</option>
+                  <option value="Stockholm">Stockholm</option>
+                  <option value="Göteborg">Göteborg</option>
+                  <option value="4bc43d96-3e84-4695-b777-365dbed33f89">Malmö</option>
+                  <option value="ec6b9039-9afb-4632-81aa-ff95338a011a">Uppsala</option>
+                  <option value="6f9eee1f-b582-4c84-95df-393e443a2cae">Västerås</option>
+                  <option value="27acb7a0-2b3d-441f-a556-bec0e430992a">Örebro</option>
+                  <option value="6745e3f4-636a-4ab7-8626-2311120c92c9">Linköping</option>
+                  <option value="a8a70019-9382-4215-a5b3-6278eb9232c3">
+                    Helsingborg
+                  </option>
+                  <option value="6fc1a491-3710-42f2-936d-e9bf9be4f915">Jönköping</option>
+                  <option value="45428195-ab40-43d2-ad11-a62933f4a3a8">Norrköping</option> -->
+                </select>
+              </form>
+
+              <button type="submit" onclick="searchCities()">
                 <i class="bi bi-search" aria-hidden="true"></i>
               </button>
             </div>
+
             <!-- </fieldset> -->
             <legend>Add new city</legend>
-            <input class="addNew" name="newCity" placeholder="Stockholm.." />
-            <input class="addNew" name="population" placeholder="Population" />
+            <div id="addNew-wrapper">
+              <input class="addNew" name="newCity" placeholder="Stockholm.." />
+              <input
+                class="addNew"
+                name="population"
+                placeholder="Population"
+              />
+            </div>
           </form>
         </div>
       </section>
 
-      <section id="cities-list"></section>
-      <br />
+      <section id="cities-list">
+
+      </section>
+
+      <p id="test"></p>
+
+      <img
+        class="weather-icon"
+        src="media/icons/sun.svg"
+        alt="sun"
+        data-current-icon
+      />
+      <div class="current-temp">
+        <p>temperature: <span data-current-temp>31</span>&deg;</p>
+      </div>
       <!-- <legend>Add new city</legend>
       <input name="newCity" placeholder="Stockholm.." />
       <input name="population" placeholder="Population" />
