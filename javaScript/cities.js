@@ -105,7 +105,6 @@ async function searchCities() {
             citiesToList = `
                 <div class="citieList">
                 <h2>${result.name}</h2>
-                <img class="downArrowIcon" src="/media/icons/cloudSun.png" alt="arrow down">
                 <p>Population: ${result.population}</p>
                 <p>Latitude: ${latitude}</p>
                 <p>Longitude: ${longitude}</p>
