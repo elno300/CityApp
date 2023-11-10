@@ -183,48 +183,54 @@ legend{
 
 /* Drop-down field searching for one or all cities*/
 #search{
-    background: rgba(255, 255, 255, 0.937);
+    background: rgba(255, 255, 255, 0.70);
     padding-right: 10px;
     width: 100%;
-    /* display: flex; */
-    /* justify-content:flex-end; */
-    /* background-position: left 20px center; */
 }
 
 button{
     /* background-color: transparent; */
+    background: #FDE0D8;
     margin-left: 10px;
-    width: 50px;
-    height: 47px;
+    width: 45px;
+    height: 43px;
     margin-top: 10px;
     border-radius: 15px;
     cursor: pointer;
     border: none;
+
+
 }
 
 button:hover{
     color: black;
+    background-color: #FFF;
 }
 
 #dropDownMenuPlusButton{
     display: flex;
-    flex-direction: column;
-}
+    margin-top: auto;
+    max-width: 426px;
 
+}
 
 #addNew-wrapper{
     /* background-color: brown; */
-    /* width: 100%; */
     display: flex;
     flex-direction: column;
+    width: 90vw;
+    margin-top: auto;
+    max-width: 426px;
+    padding-bottom: 3vh;
 }
-
 
 #citiesInfo{
     background: #FDE0D8;
     display: flex;
-    justify-content: center;
+    padding-left: 5vw;
+    /* justify-content:; */
     /* display: none; */
+    padding-right: 5vw;
 }
 
 /* All info om städerna */
@@ -236,17 +242,23 @@ button:hover{
     width: 90vw;
     padding: 5vw;
     display: none;
-
+    width: 90vw;
+    max-width: 300px;
 }
 
-
-.downArrowIcon{
-    height: 3rem;
-    width: 3.4rem;
+#Layer_1{
+    /* position: relative;
+    float: left; */
+    transform: rotate(90deg);
+    left:290px;
 }
 
+#arrowIcon-container{
+    display: flex;
+    justify-content: end;
 
-
+    width: 100%;
+}
 
 
 
@@ -278,7 +290,7 @@ button:hover{
 } */
 
 .cities-heading-wrapper{
-    background-color: violet;
+    /* background-color: violet; */
     max-width: 398px;
     /* align-content: center; */
 }
@@ -293,7 +305,7 @@ button:hover{
 @media  screen and (min-width: 700px) {
 
     .cities-heading-wrapper{
-        background-color: violet;
+        /* background-color: violet; */
         width: 70vw;
         /* align-content: center; */
     }
