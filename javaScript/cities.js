@@ -1,14 +1,12 @@
-// Id för det som valts i drop-down menyn
-let selectedCityId = ""
-
 // Section där alla städer skrivs in i när man valt en eller flera städer
 let listOfSelected = document.getElementById('cities-list')
-
+// Id för det som valts i drop-down menyn
+let selectedCityId;
 // Alla städers namn sparas här tillsammans med html,
 //Det skapas option taggar med stadens id som value och stadens namn som test/sträng.
-let citiesToDropDown = ""
+let citiesToDropDown;
+// let geoLocationPromise;
 
-let geoLocationPromise;
 
 //Här fylls dropdown menyn på med namn på städer hämtade från cities-apiet hämtat med fetch. Den exekveras när den kallas.
 // Arrow-function
@@ -65,60 +63,73 @@ function findGeoLocation(cityName){
   //============================================//
 
 
+document.getElementById('btn_searchCities').addEventListener("click", searchCities)
 
-// ...
+// Funktion för att hantera stadsökning
+async function searchCities() {
 
-function searchCities() {
-
-    //Visat den section där all information hamnar
-    document.getElementById('cities-list').style.display = "inline"
-
+    document.getElementById('cities-list').style.display = "inline";
     populateDropDownMenu();
-
     selectedCityId = document.getElementById('search').value;
 
-    fetch('https://avancera.app/cities/' + selectedCityId)
-        .then(response => response.json())
-        .then(result => {
-            console.log(selectedCityId);
+    try {
+        const response = await fetch('https://avancera.app/cities/' + selectedCityId);
+        const result = await response.json();
+        console.log(selectedCityId);
 
-            let citiesToList = ""
-            if (!selectedCityId) {
+        let citiesToList = "";
 
-                Promise.all(result.map(city => findGeoLocation(city.name)))
+        if (!selectedCityId) {
 
-                    .then(geoLocations => {
-                        for (let i = 0; i < result.length; i++) {
-                            const { latitude, longitude } = geoLocations[i];
+            //För varje stad (result) skickas ett anrop till geo funktionen som i sin tur returnerar ett promise. Det skapas en array av varje returvärde som hamnar i geoLocations.
+            const geoLocations = await Promise.all(result.map(cityItem => findGeoLocation(cityItem.name)));
 
-                            citiesToList +=
-                                `<div class="citieList" id="citieList${[i]}" >
-                                <h2>${result[i].name}<h2>
-                                <p>Population: ${result[i].population}<p>
-                                <p>Latitude: ${latitude}</p>
-                                <p> Longitude: ${longitude}</p>
-                                </div>`;
-                        }
+            // För varje objekt som är sparat i geoLocation
+            for (let i = 0; i < geoLocations.length; i++) {
+                const { latitude, longitude } = geoLocations[i];
 
-                        listOfSelected.innerHTML = citiesToList;
-                    });
-
-
-            } else {
-                findGeoLocation(result.name)
-                    .then(({ latitude, longitude }) => {
-                        citiesToList =
-                            `<div class="citieList" >
-                            <h2>${result.name}<h2>
-                            <img class="downArrowIcon" src="/media/icons/cloudSun.png" alt="arrow down">
-                            <p>Population: ${result.population}<p>
-                            <p>Latitude: ${latitude}</p>
-                            <p>Longitude: ${longitude}</p>
-
-
-                            </div>`;
-                        listOfSelected.innerHTML = citiesToList;
-                    });
+                citiesToList += `
+                    <div class="citieList" id="citieList${i}">
+                    <h2>${result[i].name}</h2>
+                    <p>Population: ${result[i].population}</p>
+                    <p>Latitude: ${latitude}</p>
+                    <p>Longitude: ${longitude}</p>
+                    </div>`;
             }
-        });
+
+
+        } else {
+
+            const { latitude, longitude } = await findGeoLocation(result.name);
+            citiesToList = `
+                <div class="citieList">
+                <h2>${result.name}</h2>
+                <img class="downArrowIcon" src="/media/icons/cloudSun.png" alt="arrow down">
+                <p>Population: ${result.population}</p>
+                <p>Latitude: ${latitude}</p>
+                <p>Longitude: ${longitude}</p>
+                </div>`;
+        }
+
+        listOfSelected.innerHTML = citiesToList;
+
+    } catch (error) {
+        console.error('Error getting city data', error);
+    }
+}
+
+
+// Funktion för att hitta den geografiska platsen för en stad
+async function findGeoLocation(cityName) {
+    try {
+        const response = await fetch(`https://api.geoapify.com/v1/geocode/search?city=${cityName}&state=${cityName}&country=Sweden&lang=en&limit=1&type=city&format=json&apiKey=58e3667c44f64bc2adfd18a7d67ba5f1`);
+        const result = await response.json();
+
+        const { lat: latitude, lon: longitude } = result.results[0];
+        return { latitude, longitude };
+
+    } catch (error) {
+        console.error('Error getting geo-location', error);
+        throw error; // Kasta felet vidare för att hantera det senare
+    }
 }
