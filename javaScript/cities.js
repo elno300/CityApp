@@ -69,7 +69,10 @@ function findGeoLocation(cityName){
 // ...
 
 function searchCities() {
+
+    //Visat den section där all information hamnar
     document.getElementById('cities-list').style.display = "inline"
+
     populateDropDownMenu();
 
     selectedCityId = document.getElementById('search').value;
@@ -92,7 +95,8 @@ function searchCities() {
                                 `<div class="citieList" id="citieList${[i]}" >
                                 <h2>${result[i].name}<h2>
                                 <p>Population: ${result[i].population}<p>
-                                <p>Latitude: ${latitude}, Longitude: ${longitude}</p>
+                                <p>Latitude: ${latitude}</p>
+                                <p> Longitude: ${longitude}</p>
                                 </div>`;
                         }
 
@@ -106,8 +110,12 @@ function searchCities() {
                         citiesToList =
                             `<div class="citieList" >
                             <h2>${result.name}<h2>
+                            <img class="downArrowIcon" src="/media/icons/cloudSun.png" alt="arrow down">
                             <p>Population: ${result.population}<p>
-                            <p>Latitude: ${latitude}, Longitude: ${longitude}</p>
+                            <p>Latitude: ${latitude}</p>
+                            <p>Longitude: ${longitude}</p>
+
+
                             </div>`;
                         listOfSelected.innerHTML = citiesToList;
                     });

@@ -17,7 +17,13 @@ h2{
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    /* margin-top: 10px; */
+    /* padding-top: 4px; */
+    margin: 0;
 
+}
+.citieList{
+    margin-top: 20px;
 }
 
 .citieList p{
@@ -173,8 +179,6 @@ legend{
     font-family: MergeOne, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     position: relative;
-
-
 }
 
 /* Drop-down field searching for one or all cities*/
@@ -182,6 +186,8 @@ legend{
     background: rgba(255, 255, 255, 0.937);
     padding-right: 10px;
     width: 100%;
+    /* display: flex; */
+    /* justify-content:flex-end; */
     /* background-position: left 20px center; */
 }
 
@@ -200,12 +206,11 @@ button:hover{
     color: black;
 }
 
-#search, #search-wrapper{
-    /* background-color: rgba(123, 94, 68, 0.761); */
-    width: 100%;
+#dropDownMenuPlusButton{
     display: flex;
-    justify-content:flex-end;
+    flex-direction: column;
 }
+
 
 #addNew-wrapper{
     /* background-color: brown; */
@@ -235,6 +240,14 @@ button:hover{
 }
 
 
+.downArrowIcon{
+    height: 3rem;
+    width: 3.4rem;
+}
+
+
+
+
 
 
 /*==============================*/
@@ -259,10 +272,10 @@ button:hover{
 
 @media  screen and (min-width: 400px) {
 
-nav h1{
+/* nav h1{
 
     background-color: aquamarine;
-}
+} */
 
 .cities-heading-wrapper{
     background-color: violet;

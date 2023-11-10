@@ -25,9 +25,7 @@
         </nav>
       </header>
       <section id="cities-intro-container">
-        <!-- <div id="citiesImg">
-          <img src="media/img/stockholm.jpg" alt="photo of stockholm city" />
-        </div> -->
+
         <div id="cities-intro-text-wrapper">
           <div class="cities-heading-wrapper">
             <span class="cities-heading1">Cities</span>
@@ -35,29 +33,35 @@
           </div>
 
           <p>Search or make changes to the Cities API on this page.</p>
-
+          <div id="dropDownMenuPlusButton">
           <form id="cities-form1">
             <legend>Search</legend>
-              <form>
-                <select name="search" id="search" id="search-wrapper">
-                </select>
-              </form>
-
+            <!-- id="search-wrapper" -->
+              <select name="search" id="search" >
+              </select>
+          </form>
+            <div>
               <button type="submit" onclick="searchCities()">
+
+                <!-- Förstoringsglas -->
                 <i class="bi bi-search" aria-hidden="true"></i>
               </button>
             </div>
 
-            <!-- </fieldset> -->
-            <legend>Add new city</legend>
-            <div id="addNew-wrapper">
-              <input class="addNew" name="newCity" placeholder="Stockholm.." />
-              <input
-                class="addNew"
-                name="population"
-                placeholder="Population"
-              />
             </div>
+                   <!-- </fieldset> -->
+                   <legend>Add new city</legend>
+                   <div id="addNew-wrapper">
+                     <input class="addNew" name="newCity" placeholder="Stockholm.." />
+                     <input
+                       class="addNew"
+                       name="population"
+                       placeholder="Population"
+                     />
+                   </div>
+            </div>
+
+
           </form>
         </div>
       </section>
