@@ -136,6 +136,6 @@ async function findGeoLocation(cityName) {
 
     } catch (error) {
         console.error('Error getting geo-location', error);
-        throw error; // Kasta felet vidare för att hantera det senare
+        // throw error; // Kasta felet vidare för att hantera det senare
     }
 }

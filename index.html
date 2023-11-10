@@ -33,32 +33,32 @@
           </div>
 
           <p>Search or make changes to the Cities API on this page.</p>
-          <legend>Search</legend>
-          <div id="dropDownMenuPlusButton">
-          <form id="cities-form1">
-            <!-- id="search-wrapper" -->
-              <select name="search" id="search" >
-              </select>
-          </form>
-            <div>
-              <button type="submit" id="btn_searchCities">
-                <!-- Förstoringsglas -->
-                <i class="bi bi-search" aria-hidden="true"></i>
-              </button>
+
+          <legend id="searchLegend">Search</legend>
+            <div id="dropDownMenuPlusButton">
+              <form id="cities-form1">
+                <!-- id="search-wrapper" -->
+                  <select name="search" id="search" >
+                  </select>
+              </form>
+              <div>
+                  <button type="submit" id="btn_searchCities">
+                    <!-- Förstoringsglas -->
+                    <i class="bi bi-search" aria-hidden="true"></i>
+                  </button>
+              </div>
             </div>
           </div>
 
-            </div>
-
-              <legend>Add new city</legend>
+              <legend id="addNewCityLegend">Add new city</legend>
               <div id="addNew-wrapper">
                 <input class="addNew" name="newCity" placeholder="Stockholm.." />
                 <input class="addNew" name="population" placeholder="Population"
                 />
-            </div>
+              </div>
 
             </div>
-          </form>
+          <!-- </form> -->
         </div>
       </section>
       <div id="citiesInfo">
