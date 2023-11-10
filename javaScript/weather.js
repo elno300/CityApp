@@ -45,32 +45,55 @@
 // Alla städers namn sparas här tillsammans med html,
 //Det skapas option taggar med stadens id som value och stadens namn som test/sträng.
 
-let weatherCitiesToDropDown = ""
-//Här fylls dropdown menyn på med namn på städer hämtade från cities-apiet hämtat med fetch
-let populateWeatherDropDownMenu = () =>{
 
-  fetch('https://avancera.app/cities/')
-  .then((response)=> response.json())
-  .then((result) => {
+document.getElementById('weather-search-btn').addEventListener("click", getWeather)
 
-      for(i = 0; i < result.length; i++){
 
-        weatherCitiesToDropDown+=
-        `<option value="${result[i].id}">${result[i].name}</option>`
+async function getWeather(){
+  let cityInput = document.getElementById('weatherSearch').value
+  let location= searchGeoLocation(cityInput)
 
-      }
+// console.log(location)
+}
 
-      document.getElementById('search').innerHTML = weatherCitiesToDropDown;
+async function searchGeoLocation(cityInputP) {
 
-        console.log(weatherCitiesToDropDown)
-    })
+  console.log(cityInputP)
+
+fetch(`https://api.geoapify.com/v1/geocode/search?city=${cityInputP}&state=${cityInputP}&country=Sweden&lang=en&limit=1&type=city&format=json&apiKey=58e3667c44f64bc2adfd18a7d67ba5f1`)
+
+  .then(response => response.json())
+  .then(result =>{
+
+      const latitude = result.results[0].lat;
+      const longitude = result.results[0].lon;
+      // return { latitude, longitude };
+
+      console.log(latitude, longitude )
+      return ({latitude, longitude})
+  }
+)
+
+.catch(error => console.log('error', error));
 
 }
 
-// Fyller på drop-down menyn med städer en gång
-populateWeatherDropDownMenu()
+// function findGeoLocation(cityName){
+
+//      return fetch(`https://api.geoapify.com/v1/geocode/search?city=${cityName}&state=${cityName}&country=Sweden&lang=en&limit=1&type=city&format=json&apiKey=58e3667c44f64bc2adfd18a7d67ba5f1`)
+
+//         .then(response => response.json())
+//         .then(result =>{
+
+//             const latitude = result.results[0].lat;
+//             const longitude = result.results[0].lon;
+//             return { latitude, longitude };
+//         }
+//     )
+
+//     .catch(error => console.log('error', error));
+
+// }
 
 
-
-// const searchWeather_btn = document.getElementById('weather-search-btn')
-// searchWeather_btn.addEventListener("click", )
+// https://api.open-meteo.com/v1/forecast?latitude=57.7021&longitude=11.9537&current=temperature_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon
