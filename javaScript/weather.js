@@ -71,11 +71,50 @@ async function getWeather(){
     const weatherCode = weatherReport.data.current.weather_code
     const precipitation = weatherReport.data.current.precipitation
     const windSpeed = weatherReport.data.current.wind_speed_10m
+
     console.log(report, '°C')
     console.log(weatherCode, 'väderkod')
     console.log(weatherReport)
-    console.log(precipitation)
+    console.log(precipitation, 'precipitation')
     console.log(windSpeed, 'm/s')
+
+    switch(weatherCode) {
+      case 0:
+        console.log('Clear sky')
+        return '☀️'
+        // code block
+        break;
+      case  1,2,3:
+       console.log('Mainly clear, partly cloudy, and overcast')
+       return '🌤️'
+        break;
+      case 2:
+      return '⛅️'
+        break;
+      case 3:
+        //overcast - mulen
+        return '☁️'
+        break;
+      case 45,48:
+      console.log('45, 48')
+        break;
+      case 51,53,55,61,63,65,80,81,82:
+        return 'rain'
+        break;
+      case 56,57,66,67,85,86:
+        return 'snow + rain'
+        break;
+      case 71,73,75,77:
+        console.log('rain')
+        return 'rain'
+        break;
+      case 95,96,99:
+        return ' thunder'
+      default:
+        // code block
+    }
+
+    console.log(weatherCode, 'väderkod')
 
     // console.log(weatherReport)
 
