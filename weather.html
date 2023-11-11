@@ -10,26 +10,36 @@
   </head>
   <body>
     <header>
-        <nav>
-          <h1>CITY APP</h1>
-          <ul id="menu">
-            <li><a href="#about">About</a></li>
-            <li><a href="weather.html">Weather</a></li>
-            <li><a href="index.html">Cities</a></li>
-          </ul>
-        </nav>
-      </header>
-      <section class="background">
+      <nav>
+        <h1>CITY APP</h1>
+        <ul id="menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="weather.html">Weather</a></li>
+          <li><a href="index.html">Cities</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="background">
       <div class="transparentWindow">
-    <div>
-        <p>Type in a city to get a current weather report</p>
-        <div id="search-wrapper">
-          <input type="text" id="searchWeather" placeholder="City name..">
+        <!-- <p>Type in a city to get a current weather report</p> -->
+        <div id="inputfield-btn-wrapper">
+          <input type="text" id="searchWeather" placeholder="City name.." />
           <button type="submit" id="weather-search-btn">
             <i class="bi bi-search" aria-hidden="true"></i>
           </button>
+        </div>
+        <div id="degrees-container">
+          <p id="degrees"></p>
+        </div>
+        <div id="img-container">
+          <img src="" alt="" />
+        </div>
+        <div id="wind-container">
+          <p id="wind"></p>
+        </div>
+        <div id "precipitationContainer">
       </div>
-    </div>
+
       <!-- <img src="media/fall.jpg" alt="fall" /> -->
     </section>
     <script src="/javaScript/weather.js"></script>

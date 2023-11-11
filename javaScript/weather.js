@@ -51,6 +51,11 @@ document.getElementById('weather-search-btn').addEventListener("click", getWeath
 
 async function getWeather(){
   let cityInput = document.getElementById('searchWeather').value
+
+  if(!cityInput){
+
+
+  }
   // let location= searchGeoLocation(cityInput)
 
     let geoResult = (await axios.get(`https://api.geoapify.com/v1/geocode/search?city=${cityInput}&state=${cityInput}&country=Sweden&lang=en&limit=1&type=city&format=json&apiKey=58e3667c44f64bc2adfd18a7d67ba5f1`)).data;
@@ -63,18 +68,25 @@ async function getWeather(){
 
     const report = weatherReport.data.current.temperature_2m
 
+    const weatherCode = weatherReport.data.current.weather_code
+    const precipitation = weatherReport.data.current.precipitation
+    const windSpeed = weatherReport.data.current.wind_speed_10m
     console.log(report, '°C')
-
+    console.log(weatherCode, 'väderkod')
     console.log(weatherReport)
+    console.log(precipitation)
+    console.log(windSpeed, 'm/s')
 
-    `<div>Precipitation forecast</div>
-    
-    `
+    // console.log(weatherReport)
+
+    // `<div>Precipitation forecast</div>
+
+    // `
 }
 
 // console.log(location)
 
-
+// console.log(weatherReport)
 //======================================
 // async function searchGeoLocation(cityInputP) {
 

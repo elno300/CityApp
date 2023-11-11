@@ -60,31 +60,32 @@ section{
     background-color:rgb(10, 12, 31);
     /* background-image: url(media/pexels-eberhard-grossgasteiger-629167.jpg); */
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 10vh;
+    /* align-items: center; */
 }
 
 img{
     z-index: 0;
 }
 
-/* section::before{
+section::before{
     content: '';
     position: absolute;
     width: 400px;
     height: 400px;
     background: linear-gradient(rgb(249, 225, 9),rgb(226, 18, 181));
     border-radius: 50%;
-    transform: translate(-250px,-120px);
-} */
+    transform: translate(-230px,200px);
+}
 
 .transparentWindow{
     position: relative;
-    width: 400px;
+    width: 90vw;
+    max-width: 400px;
     height: 500px;
-    /* background-color: antiquewhite; */
     background:rgba(240, 248, 255, 0.204);
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(225, 225, 225, 0.62);
@@ -93,7 +94,7 @@ img{
     border-radius: 10px;
     backdrop-filter: blur(25px);
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     /* align-items: center; */
     z-index: 1;
 }
@@ -101,6 +102,7 @@ img{
 
 #weather-search-btn{
     /* background-color: transparent; */
+    background: rgba(255, 255, 255, 0.535);
     margin-left: 10px;
     width: 50px;
     height: 47px;
@@ -108,12 +110,41 @@ img{
     border-radius: 15px;
     cursor: pointer;
     border: none;
+    margin-right: 1vw;
+
 }
 
 #weather-search-btn:hover{
-    color: black;
+    color: rgb(254, 254, 254);
+}
+/* Inputfield */
+#searchWeather{
+    width: 80%;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.535);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    border: 1px solid #FFF;
+    border-radius: 24px;
+    padding: 8px 40px 8px 30px;
+    margin: 10px 00;
+    font-family: MergeOne, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    position: relative;
+    margin-left: 1vw;
+
 }
 
+#inputfield-btn-wrapper{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+
+    width: 90vw;
+    max-width: 400px;
+    position: absolute;
+    margin-top: 2vh;
+
+}
 
 @font-face {
     font-family: Kodchasan;
