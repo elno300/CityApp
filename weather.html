@@ -23,29 +23,34 @@
         </ul>
       </nav>
     </header>
-    <section class="background">
-      <div class="transparentWindow">
+    <main class="background">
+      <section class="transparent-window">
         <!-- <p>Type in a city to get a current weather report</p> -->
         <div id="inputfield-btn-wrapper">
           <input type="text" id="searchWeather" placeholder="City name.." />
           <button type="submit" id="weather-search-btn">
-            <i class="bi bi-search" aria-hidden="true"></i>
+            <i id="magnifying-glass"class="bi bi-search" aria-hidden="true"></i>
           </button>
         </div>
-        <div id="degrees-container">
-          <p id="degrees"></p>
-        </div>
-        <div id="img-container">
-          <img src="" alt="" />
-        </div>
-        <div id="wind-container">
-          <p id="wind"></p>
-        </div>
-        <div id "precipitationContainer">
-      </div>
 
-      <!-- <img src="media/fall.jpg" alt="fall" /> -->
-    </section>
+          <div id="temperature-container">
+            <p id="current-temperature"></p>
+          </div>
+
+          <div id="img-container">
+            <img id="" src="" alt="" />
+          </div>
+
+          <div id="wind-container">
+            <p id="wind"></p>
+          </div>
+
+          <div id="precipitation-container">
+            <p>Hej</p>
+          </div>
+      </section>
+       <!-- <img src="media/fall.jpg" alt="fall" /> -->
+    </main>
     <script src="/javaScript/weather.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </body>

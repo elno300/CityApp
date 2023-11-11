@@ -45,6 +45,7 @@
 // Alla städers namn sparas här tillsammans med html,
 //Det skapas option taggar med stadens id som value och stadens namn som test/sträng.
 
+let degrees;
 
 document.getElementById('weather-search-btn').addEventListener("click", getWeather)
 
@@ -66,13 +67,13 @@ async function getWeather(){
 
     let weatherReport = (await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitud}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon`))
 
-    const report = weatherReport.data.current.temperature_2m
+    const currentTemperature = weatherReport.data.current.temperature_2m
 
-    const weatherCode = weatherReport.data.current.weather_code
+    // const weatherCode = weatherReport.data.current.weather_code
     const precipitation = weatherReport.data.current.precipitation
     const windSpeed = weatherReport.data.current.wind_speed_10m
-
-    console.log(report, '°C')
+  const weatherCode = 0
+    console.log(currentTemperature, '°C')
     console.log(weatherCode, 'väderkod')
     console.log(weatherReport)
     console.log(precipitation, 'precipitation')
@@ -81,7 +82,7 @@ async function getWeather(){
     switch(weatherCode) {
       case 0:
         console.log('Clear sky')
-        return '☀️'
+
         // code block
         break;
       case  1,2,3:
@@ -114,7 +115,15 @@ async function getWeather(){
         // code block
     }
 
+    document.getElementById('img-container').innerHTML = weatherImg
     console.log(weatherCode, 'väderkod')
+
+    console.log('')
+
+
+    const svgText = ``
+
+
 
     // console.log(weatherReport)
 
