@@ -27,29 +27,39 @@
       <section class="transparent-window">
         <!-- <p>Type in a city to get a current weather report</p> -->
         <div id="inputfield-btn-wrapper">
-          <input type="text" id="searchWeather" placeholder="City name.." />
+          <input type="text" id="search-weather" placeholder="City name.." />
           <button type="submit" id="weather-search-btn">
-            <i id="magnifying-glass"class="bi bi-search" aria-hidden="true"></i>
+            <i
+              id="magnifying-glass"
+              class="bi bi-search"
+              aria-hidden="true"
+            ></i>
           </button>
         </div>
 
-          <div id="temperature-container">
-            <p id="current-temperature"></p>
+        <div id="weather-report-container">
+          <div id="temp-svg-wrapper">
+            <div id="temperature-container">
+              <p id="current-temperature"></p>
+            </div>
+
+            <div id="img-container">
+              <img id="" src="" alt="" />
+            </div>
           </div>
 
-          <div id="img-container">
-            <img id="" src="" alt="" />
-          </div>
+          <div id="wind-precipitation-wrapper">
+            <div id="wind-container">
+              <p id="wind"></p>
+            </div>
 
-          <div id="wind-container">
-            <p id="wind"></p>
+            <div id="precipitation-container">
+              <!-- <p>Hej</p> -->
+            </div>
           </div>
-
-          <div id="precipitation-container">
-            <p>Hej</p>
-          </div>
+        </div>
       </section>
-       <!-- <img src="media/fall.jpg" alt="fall" /> -->
+      <!-- <img src="media/fall.jpg" alt="fall" /> -->
     </main>
     <script src="/javaScript/weather.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

@@ -45,19 +45,18 @@
 // Alla städers namn sparas här tillsammans med html,
 //Det skapas option taggar med stadens id som value och stadens namn som test/sträng.
 
-let degrees;
+const temperaturContainer = document.getElementById('temperature-container')
+const imgContainer = document.getElementById('img-container')
+const windContainer = document.getElementById('wind-container')
+const precipitationContainer = document.getElementById('precipitation-container')
+
 
 document.getElementById('weather-search-btn').addEventListener("click", getWeather)
 
 
 async function getWeather(){
-  let cityInput = document.getElementById('searchWeather').value
 
-  if(!cityInput){
-
-
-  }
-  // let location= searchGeoLocation(cityInput)
+  let cityInput = document.getElementById('search-weather').value
 
     let geoResult = (await axios.get(`https://api.geoapify.com/v1/geocode/search?city=${cityInput}&state=${cityInput}&country=Sweden&lang=en&limit=1&type=city&format=json&apiKey=58e3667c44f64bc2adfd18a7d67ba5f1`)).data;
 
@@ -68,16 +67,21 @@ async function getWeather(){
     let weatherReport = (await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitud}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon`))
 
     const currentTemperature = weatherReport.data.current.temperature_2m
-
-    // const weatherCode = weatherReport.data.current.weather_code
+    const weatherCode = weatherReport.data.current.weather_code
     const precipitation = weatherReport.data.current.precipitation
     const windSpeed = weatherReport.data.current.wind_speed_10m
-  const weatherCode = 0
+
     console.log(currentTemperature, '°C')
     console.log(weatherCode, 'väderkod')
     console.log(weatherReport)
     console.log(precipitation, 'precipitation')
     console.log(windSpeed, 'm/s')
+
+    temperaturContainer.innerHTML =`<p id="temperature">${currentTemperature} °C</p>`
+    imgContainer.innerHTML = ``
+    windContainer.innerHTML =`<p id="wind">${windSpeed} m/s`
+    precipitationContainer.innerHTML =` <p id="precipitation">Precipitation: </p><p id="precipitation">${precipitation}</p>`
+
 
     switch(weatherCode) {
       case 0:
@@ -113,6 +117,7 @@ async function getWeather(){
         return ' thunder'
       default:
         // code block
+
     }
 
     document.getElementById('img-container').innerHTML = weatherImg
@@ -123,6 +128,7 @@ async function getWeather(){
 
     const svgText = ``
 
+  }
 
 
     // console.log(weatherReport)
@@ -130,7 +136,7 @@ async function getWeather(){
     // `<div>Precipitation forecast</div>
 
     // `
-}
+
 
 // console.log(location)
 
