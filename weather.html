@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/css/weather.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- <link rel="stylesheet" href="/css/main.css"> -->
   </head>
   <body>
@@ -20,15 +21,18 @@
       </header>
       <section class="background">
       <div class="transparentWindow">
-        <legend>Search</legend>
+    <div>
+        <p>Type in a city to get a current weather report</p>
         <div id="search-wrapper">
-          <input type="text" id="weatherSearch">
+          <input type="text" id="searchWeather" placeholder="City name..">
           <button type="submit" id="weather-search-btn">
             <i class="bi bi-search" aria-hidden="true"></i>
           </button>
       </div>
+    </div>
       <!-- <img src="media/fall.jpg" alt="fall" /> -->
     </section>
     <script src="/javaScript/weather.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </body>
 </html>

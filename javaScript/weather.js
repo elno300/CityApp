@@ -50,35 +50,62 @@ document.getElementById('weather-search-btn').addEventListener("click", getWeath
 
 
 async function getWeather(){
-  let cityInput = document.getElementById('weatherSearch').value
-  let location= searchGeoLocation(cityInput)
+  let cityInput = document.getElementById('searchWeather').value
+  // let location= searchGeoLocation(cityInput)
+
+    let geoResult = (await axios.get(`https://api.geoapify.com/v1/geocode/search?city=${cityInput}&state=${cityInput}&country=Sweden&lang=en&limit=1&type=city&format=json&apiKey=58e3667c44f64bc2adfd18a7d67ba5f1`)).data;
+
+    const latitude = geoResult.results[0].lat
+    const longitud = geoResult.results[0].lon
+    console.log(latitude, longitud)
+
+    let weatherReport = (await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitud}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon`))
+
+    const report = weatherReport.data.current.temperature_2m
+
+    console.log(report, '°C')
+
+    console.log(weatherReport)
+
+    `<div>Precipitation forecast</div>
+    
+    `
+}
 
 // console.log(location)
-}
 
-async function searchGeoLocation(cityInputP) {
 
-  console.log(cityInputP)
+//======================================
+// async function searchGeoLocation(cityInputP) {
 
-fetch(`https://api.geoapify.com/v1/geocode/search?city=${cityInputP}&state=${cityInputP}&country=Sweden&lang=en&limit=1&type=city&format=json&apiKey=58e3667c44f64bc2adfd18a7d67ba5f1`)
+//   console.log(cityInputP)
 
-  .then(response => response.json())
-  .then(result =>{
+// fetch(`https://api.geoapify.com/v1/geocode/search?city=${cityInputP}&state=${cityInputP}&country=Sweden&lang=en&limit=1&type=city&format=json&apiKey=58e3667c44f64bc2adfd18a7d67ba5f1`)
 
-      const latitude = result.results[0].lat;
-      const longitude = result.results[0].lon;
-      // return { latitude, longitude };
+//   .then(response => response.json())
+//   .then(result =>{
 
-      console.log(latitude, longitude )
-      return ({latitude, longitude})
-  }
-)
+//       const latitude = result.results[0].lat;
+//       const longitude = result.results[0].lon;
+//       // return { latitude, longitude };
 
-.catch(error => console.log('error', error));
+//       console.log(latitude, longitude )
+//       return ({latitude, longitude})
+//       test(latitude)
+//   }
+// )
 
-}
+// .catch(error => console.log('error', error));
 
+// }
+
+// test(latitude){
+
+//   console.log(latitude)
+// }
 // function findGeoLocation(cityName){
+
+//================================================
 
 //      return fetch(`https://api.geoapify.com/v1/geocode/search?city=${cityName}&state=${cityName}&country=Sweden&lang=en&limit=1&type=city&format=json&apiKey=58e3667c44f64bc2adfd18a7d67ba5f1`)
 
