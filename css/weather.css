@@ -170,7 +170,7 @@ a{
     width: 100%;
 }
 
-#temperature-container, #img-container, #wind-container, #precipitation-container{
+#temperature-container, #weather-symbol-container, #wind-container, #precipitation-container{
     /* background-color: beige; */
     width: 50%;
     display: flex;
@@ -182,7 +182,7 @@ a{
     border-bottom: 1px solid white;
     border-right: 1px solid white;
 }
-#img-container{
+#weather-symbol-container{
     border-bottom: 1px solid white;
 }
 
@@ -195,6 +195,13 @@ a{
 
 #temperature, #wind, #precipitation{
     font-size: 40px;
+}
+
+#Lager_2{
+    /* background-color: #FFF; */
+    /* color: #FFF; */
+    fill: #FFF;
+    width: 150px;
 }
 
 /* @media  screen and (min-width: 769px){ */
