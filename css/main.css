@@ -273,8 +273,6 @@ button:hover{
 
 
 
-
-
 /*==============================*/
 /*========= Responsive =========*/
 /*==============================*/
@@ -287,50 +285,35 @@ button:hover{
     }
 }
 
-@media screen and (max-width: 373px) {
-
-    #menu a{
-
-        font-size: 15px;
-    }
-}
-
 @media  screen and (min-width: 400px) {
 
-/* nav h1{
-
-    background-color: aquamarine;
-} */
-
-.cities-heading-wrapper{
-    /* background-color: violet; */
-    max-width: 398px;
-    /* align-content: center; */
-}
-.cities-heading1, .cities-heading2{
-    font-size: 6.5em;
-    line-height: 75px;
-}
-
-
+    .cities-heading-wrapper{
+        /* background-color: violet; */
+        max-width: 398px;
+        /* align-content: center; */
+    }
+    .cities-heading1, .cities-heading2{
+        font-size: 6.5em;
+        line-height: 75px;
+    }
 }
 
 @media  screen and (min-width: 700px) {
 
     .cities-heading-wrapper{
-        /* background-color: violet; */
         width: 70vw;
-        /* align-content: center; */
     }
     .cities-heading1, .cities-heading2{
         font-size: 100px;
         line-height: 80px;
     }
+}
+
+@media  screen and (min-width: 980px){
+
 
 
 }
-
-
 /*==============================*/
 /*============ FONTS ===========*/
 /*==============================*/

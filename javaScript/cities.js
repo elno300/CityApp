@@ -5,8 +5,6 @@ let selectedCityId;
 // Alla städers namn sparas här tillsammans med html,
 //Det skapas option taggar med stadens id som value och stadens namn som test/sträng.
 let citiesToDropDown;
-// let geoLocationPromise;
-
 
 //Här fylls dropdown menyn på med namn på städer hämtade från cities-apiet hämtat med fetch. Den exekveras när den kallas.
 // Arrow-function
@@ -148,7 +146,9 @@ document.getElementById('btn_searchCities').addEventListener("click", searchCiti
 
 async function searchCities() {
     document.getElementById('cities-list').style.display = "inline";
+
     populateDropDownMenu();
+
     selectedCityId = document.getElementById('search').value;
 
     try {
