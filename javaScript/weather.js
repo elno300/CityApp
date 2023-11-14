@@ -25,13 +25,13 @@ async function getWeather(){
 
     // Här anropas väder-apiet
     // await uttrycket axios.get promise väntar på värderna för longitud och latitdud. Utan denna delen så hade koden körts utan att få med variablerna.
-    let weatherReport = (await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitud}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon`))
+    let weatherReport = (await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitud}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon`)).data
 
     //Hämtar värdena från
-    const currentTemperature = weatherReport.data.current.temperature_2m
-    const weatherCode = weatherReport.data.current.weather_code
-    const precipitation = weatherReport.data.current.precipitation
-    const windSpeed = weatherReport.data.current.wind_speed_10m
+    const currentTemperature = weatherReport.current.temperature_2m
+    const weatherCode = weatherReport.current.weather_code
+    const precipitation = weatherReport.current.precipitation
+    const windSpeed = weatherReport.current.wind_speed_10m
 
     //Felsöker/kollar vilka värden som hämtats
     console.log(currentTemperature, '°C')

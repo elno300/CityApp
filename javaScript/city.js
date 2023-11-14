@@ -1,3 +1,4 @@
+const dropDown = document.getElementById('search')
 // Här hämtas elementet där all information om städerna ska skrivas ut till
 const listOfSelected = document.getElementById('cities-list');
 
@@ -10,16 +11,21 @@ let populateDropDownMenu = () => {
     fetch('https://avancera.app/cities/')
         .then((response) => response.json())
         .then((result) => {
+
             // Här läggs ett första väl in där man väljer alla städer.
             citiesToDropDown = `<option value="">Select all</option>`;
 
             for (i = 0; i < result.length; i++) {
+
                 citiesToDropDown += `<option value="${result[i].id}">${result[i].name}</option>`;
+
             }
+
             // Ett select-element, search fylls på med alla städers namn.
-            document.getElementById('search').innerHTML = citiesToDropDown;
+            dropDown.innerHTML = citiesToDropDown;
 
             console.log(citiesToDropDown);
+
         });
 };
 
@@ -50,7 +56,9 @@ async function searchCities() {
         let citiesToList = '';
 
         if (!selectedCityId) {
+
             for (let i = 0; i < result.length; i++) {
+                
                 citiesToList += `
                     <div class="citieList" id="citieList${i}">
                         <h2>${result[i].name}</h2>
@@ -66,7 +74,7 @@ async function searchCities() {
         }
         // Skriv ut städer eller stad
         listOfSelected.innerHTML = citiesToList;
-        
+
     } catch (error) {
         console.error('Error getting city data', error);
         alert('Försök igen');
