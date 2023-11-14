@@ -1,45 +1,24 @@
-*{
-    font-family: Merge One;
+/* *{
+    font-family: karla;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-}
+} */
 
 body{
     margin: 0;
 }
 
-h2{
-    color: #000;
-    font-family: MergeOne;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    /* margin-top: 10px; */
-    /* padding-top: 4px; */
-    margin: 0;
-
-}
-.citieList{
-    margin-top: 20px;
-}
-
-.citieList p{
-    margin-top: 1px;
-    padding-top: 0;
-    font-family: MergeOne;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
 
 /*==============================*/
 
 #background-container{
-    background: url("/media/img/stockholm.jpg");
+    /* background: url("/media/img/stockholm.jpg"); */
+    background-color: #eebcae;
+    /* background-color: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%); */
+
+/* filter: blur(2px); */
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -146,7 +125,8 @@ p{
     margin-top: 0.75rem;
     margin-bottom: auto;
     padding: 0;
-    font-family: Jura;
+    /* font-family: Jura; */
+    font-family: karla;
     font-size: 24px;
     flex-grow: 1;
 
@@ -165,19 +145,14 @@ p{
     max-width: 426px;
 }
 
-/* Description text*/
-legend{
-    font-family: MergeOne, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
  .addNew, #search{
-    background: rgba(255, 255, 255, 0.835);
+    background: rgba(255, 255, 255, 0.70);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     border: 1px solid #FFF;
     border-radius: 24px;
     padding: 8px 40px 8px 30px;
     margin: 10px 00;
-    font-family: MergeOne, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: karla, MergeOne, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     position: relative;
 }
@@ -189,9 +164,25 @@ legend{
     width: 100%;
 }
 
-button{
-    /* background-color: transparent; */
-    background: #FDE0D8;
+legend{
+    color: #ffffffcb;/* Description text*/
+    color-interpolation-filters: blur(3px);
+    font-family: MergeOne, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#drop-down-menu-plus-button{
+    display: flex;
+    margin-top: auto;
+    max-width: 426px;
+}
+
+/*========================== */
+/*========= Buttons =========*/
+/*========================== */
+
+#city-search-button, #add-new-city-button{
+    background: rgba(255, 255, 255, 0.52);
+    backdrop-filter: blur(3px);
     margin-left: 10px;
     width: 45px;
     height: 43px;
@@ -199,21 +190,49 @@ button{
     border-radius: 15px;
     cursor: pointer;
     border: none;
-
-
 }
 
-button:hover{
-    color: black;
-    background-color: #FFF;
+#city-search-button:hover{
+    border: solid 1px #FFF;
+}
+
+#add-new-city-button:hover{
+    border: solid 1px #FFF;
+}
+
+#magnifying-glass{
+    color: #535252;
+}
+
+#plus-icon{
+    transform: rotate(45deg);
+    fill: #535252;
+}
+
+#city-search-button:hover #magnifying-glass {
+    font-size: large;
+    color: #FFF;
 }
 
 
-#dropDownMenuPlusButton{
-    display: flex;
-    margin-top: auto;
-    max-width: 426px;
+ /* Expand icon on hover */
+#add-new-city-button:hover #plus-icon{
+    width: 24px;
+    height: 24px;
+    fill: #FFF;
+}
 
+/* ============================================== */
+/* ============================================== */
+/* ============add new city forms================ */
+/* ============================================== */
+/* ============================================== */
+
+
+#addNewCityLegend{
+    color: #FFF;
+    align-self: flex-start;
+    padding-left: 5vw;
 }
 
 #addNew-wrapper{
@@ -226,15 +245,26 @@ button:hover{
     align-self: flex-start;
     padding-left: 5vw;
 }
-
-#searchLegend{
-    color: #FFF;
+#input-new-population{
+    flex-grow: 1;
+}
+#add-city-plus-button-wrapper{
+    /* background-color: aqua; */
+    width: 100%;
+    display: flex;
 }
 
-#addNewCityLegend{
-    color: #FFF;
-    align-self: flex-start;
-    padding-left: 5vw;
+#added-city-fade, #error-message-population{
+    animation: fadeOut 3s ease-in 2s forwards ;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+   }
+
+#error-message-population p{
+    font-size: 14px;
 }
 
 #citiesInfo{
@@ -257,14 +287,43 @@ button:hover{
     max-width: 300px;
 }
 
-#Layer_1{
-    /* position: relative;
-    float: left; */
-    transform: rotate(90deg);
-    left:290px;
+h2{
+    color: #000;
+    font-family: karla-bold;
+    font-weight: 700;
+    font-size: 32px;
+    font-style: normal;
+    line-height: normal;
+    margin: 0;
+
+}
+.citieList{
+    background-color: aquamarine;
+
+    margin-top: 20px;
+    margin-bottom: 50px;
+    border-bottom: solid black 1px;
+}
+
+.citieList p{
+    margin-top: 1px;
+    padding-top: 0;
+    /* color: chocolate; */
+    font-family: karla, Arial, Helvetica, sans-serif;
+    /* font-family: MergeOne; */
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.arrow-down{
+    position: relative;
+    left:270px;
 }
 
 #arrowIcon-container{
+    background-color:rgb(230, 92, 92);
     display: flex;
     justify-content: end;
 
@@ -332,4 +391,16 @@ button:hover{
 @font-face {
     font-family: Jura;
     src: url(/media/fonts/Jura/Jura-VariableFont_wght.ttf)
+}
+
+@font-face {
+    font-family: karla;
+    src: url(/media/fonts/Karla/static/Karla-ExtraLight.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: karla-bold;
+    src: url(/media/fonts/Karla/static/Karla-Bold.ttf);
+    font-weight: 700;
 }

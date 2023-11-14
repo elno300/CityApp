@@ -31,26 +31,36 @@
             <span class="cities-heading2">service</span>
           </div>
           <p>Search or make changes to the Cities API on this page.</p>
-          <legend id="searchLegend">Search</legend>
-            <div id="dropDownMenuPlusButton">
+          <legend id="search-legend">Search</legend>
+            <div id="drop-down-menu-plus-button">
               <form id="cities-form1">
                   <select name="search" id="search" >
                   </select>
               </form>
               <div>
-                  <button type="submit" id="btn_searchCities">
+                  <button type="submit" id="city-search-button">
                     <!-- Förstoringsglas -->
-                    <i class="bi bi-search" aria-hidden="true"></i>
+                    <i id="magnifying-glass" class="bi bi-search" aria-hidden="true"></i>
                   </button>
               </div>
             </div>
+
             </div>
               <legend id="addNewCityLegend">Add new city</legend>
               <div id="addNew-wrapper">
-                <input class="addNew" name="newCity" placeholder="Stockholm.." />
-                <input class="addNew" name="population" placeholder="Population"
+                <input id="input-new-city-name" class="addNew" name="newCity" placeholder="Stockholm.." />
+                <div id="add-city-plus-button-wrapper">
+                <input id="input-new-population" class="addNew" name="population" placeholder="Population"
                 />
+                <button id ="add-new-city-button">
+                  <svg id="plus-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M2.14645 2.85355C1.95118 2.65829 1.95118 2.34171 2.14645 2.14645C2.34171 1.95118 2.65829 1.95118 2.85355 2.14645L8 7.29289L13.1464 2.14645C13.3417 1.95118 13.6583 1.95118 13.8536 2.14645C14.0488 2.34171 14.0488 2.65829 13.8536 2.85355L8.70711 8L13.8536 13.1464C14.0488 13.3417 14.0488 13.6583 13.8536 13.8536C13.6583 14.0488 13.3417 14.0488 13.1464 13.8536L8 8.70711L2.85355 13.8536C2.65829 14.0488 2.34171 14.0488 2.14645 13.8536C1.95119 13.6583 1.95119 13.3417 2.14645 13.1464L7.29289 8L2.14645 2.85355Z"/>
+                  </svg>
+                </button>
               </div>
+                <div id="error-message-population"></div>
+              </div>
+
             </div>
         </div>
       </section>
