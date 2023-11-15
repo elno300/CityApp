@@ -71,7 +71,7 @@ async function searchCities() {
                         </div>
                         <div id="city-list-btn-wrapper">
                         <div id="slide-down-on-arrow-down${i}" class="slide-down-on-arrow-down">
-                        <button id="edit-selected-city">Edit</button>
+                        <button data-city-id=${result[i].id} id="edit-selected-city" onclick="editCity(this)">Edit</button>
                         <button data-city-id=${result[i].id} id="remove-selected-city" onclick="removeCity(this)">Remove</button>
                         </div>
 
@@ -195,8 +195,8 @@ function handleArrowDownClick(e){
 
 }
 
-
-function removeCity(e){
+// Button-click
+function removeCity(e) {
 
     const removeCityId = e.dataset.cityId;
 
@@ -204,27 +204,24 @@ function removeCity(e){
 
     body: JSON.stringify({  id: removeCityId, }),
     headers: {
-
         'Content-Type': 'application/json'
     },
         method: 'DELETE'
 
-})
+    })
 
-promise
-  .then(response => {
-    console.log(response, "respomse remove city")
+    promise
+    .then(response => {
+    console.log(response)
+    populateDropDownMenu();
+    searchCities();
 
-    let someOtherPromise = response.json()
+    })
+}
 
-    return someOtherPromise
-  })
+function editCity(e){
 
-  .then(result => {
-    console.log(result, "resultat remove city")
-    populateDropDownMenu()
-    searchCities()
-  })
-
+    const editCityId = e.dataset.cityId;
+    
 
 }
