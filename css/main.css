@@ -114,6 +114,7 @@ a{
     font-size: 70px;
     line-height:54px;
 }
+
 .cities-heading2{
     align-self: flex-end;
 }
@@ -192,6 +193,12 @@ legend{
     border: none;
 }
 
+/* #add-new-city-button{ */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-content: center; */
+/* } */
+
 #city-search-button:hover{
     border: solid 1px #FFF;
 }
@@ -205,8 +212,10 @@ legend{
 }
 
 #plus-icon{
+    /* background-color: aqua; */
     transform: rotate(45deg);
     fill: #535252;
+    margin-top: 5px;
 }
 
 #city-search-button:hover #magnifying-glass {
@@ -280,12 +289,29 @@ legend{
     border: 1px solid #FFF;
     background: #FDE0D8;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-    width: 90vw;
     padding: 5vw;
     display: none;
     width: 90vw;
     max-width: 300px;
+    /* height:500px; */
+    height: fit-content;
+    max-height: 500px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#cities-list::-webkit-scrollbar{
+        display: none;
+}
+
+/* #cities-list.scroll{
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 900px;
+} */
 
 h2{
     color: #000;
@@ -298,39 +324,84 @@ h2{
 
 }
 .citieList{
-    background-color: aquamarine;
-
     margin-top: 20px;
     margin-bottom: 50px;
     border-bottom: solid black 1px;
+    /* padding-bottom: 20px; */
 }
 
 .citieList p{
+    /* background-color: brown; */
     margin-top: 1px;
     padding-top: 0;
-    /* color: chocolate; */
     font-family: karla, Arial, Helvetica, sans-serif;
-    /* font-family: MergeOne; */
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
 
-.arrow-down{
-    position: relative;
-    left:270px;
-}
-
-#arrowIcon-container{
-    background-color:rgb(230, 92, 92);
+#city-list-btn-wrapper{
+    /* background-color: #535252; */
     display: flex;
-    justify-content: end;
-
-    width: 100%;
+    justify-content: space-between;
 }
 
+.arrow-down{
+    align-self: flex-end;
+    left: 290px;
+    margin-bottom: 15px;
+}
 
+.arrow-down:hover{
+    scale: 100%;
+    background-color: #FFF;
+    border-color: solid #FFF 0.5px;
+    border-radius: 15px;
+}
+
+/* Div with more options */
+.slide-down-on-arrow-down{
+    /* background-color: antiquewhite; */
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    width: 80%;
+    height: 0px;
+    overflow: hidden;
+    /* height: 900px; */
+    /* position: absolute; */
+    margin-top: 5px;
+    transition: height 0.5s;
+}
+
+.slidein {
+    height: 40px; /* Ange önskad höjd när den är synlig */
+    padding-bottom: 20px;
+}
+
+#edit-selected-city, #remove-selected-city{
+    background: rgba(191, 127, 127, 0.52);
+    backdrop-filter: blur(3px);
+    /* margin-left: 10px; */
+    /* width: 45px; */
+    height:fit-content;
+    height: 30px;
+    /* padding: 3px; */
+    width: 90px;
+    /* padding: 8px 15px; */
+    /* margin-top: 15px; */
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+}
+
+#edit-selected-city:hover, #remove-selected-city:hover{
+    font-size: medium;
+    color: #FFF;
+    border: solid 1px #FFF;
+
+}
 
 /*==============================*/
 /*========= Responsive =========*/

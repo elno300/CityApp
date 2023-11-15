@@ -65,17 +65,39 @@ async function searchCities() {
                 //Förevarje objekt sparas en div med namn och population
                 citiesToList += `
                     <div class="citieList" id="citieList${i}">
+                        <div id="name-population-wrapper${i}">
                         <h2>${result[i].name}</h2>
                         <p>Population: ${result[i].population}</p>
-                        <svg class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div id="city-list-btn-wrapper">
+                        <div id="slide-down-on-arrow-down${i}" class="slide-down-on-arrow-down">
+                        <button id="edit-selected-city">Edit</button>
+                        <button data-city-id=${result[i].id} id="remove-selected-city" onclick="removeCity(this)">Remove</button>
+                        </div>
+
+                        <svg data-city-index="${i}" data-city-id=${result[i].id} data-apa="hej" class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" onclick="handleArrowDownClick(this)">
+                        <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                        </div>
                     </div>`;
             }
 
         } else {
+
             citiesToList = `
                 <div class="citieList">
                     <h2>${result.name}</h2>
                     <p>Population: ${result.population}</p>
+                </div>
+                <div id="city-list-btn-wrapper">
+                <div id="slide-down-on-arrow-down" class="slide-down-on-arrow-down">
+                <button id="edit-selected-city">Edit</button>
+                <button data-city-id=${result.id} id="remove-selected-city">Remove</button>
+                </div>
+
+                <svg data-city-index="0" data-city-id=${result.id} class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" onclick="handleArrowDownClick(this)">
+                <path d="M6 9l6 6 6-6"/>
+                </svg>
                 </div>`;
         }
         // Skriv ut städer eller stad
@@ -114,7 +136,6 @@ function addNewCity() {
 
     } else if (!inputNewPopulation && inputNewCityName !== "") {
 
-
         populationInput.style.border = '1px solid red';
         alert('Population field is empty');
         errorMessageP.innerHTML = `<p>Please, fill in population for the city</p>`;
@@ -132,6 +153,7 @@ function addNewCity() {
     }
 }
 
+// Fonction for adding city
 function addCityToCities(name, population){
 
    fetch('https://avancera.app/cities/',{
@@ -146,5 +168,63 @@ function addCityToCities(name, population){
 
     populateDropDownMenu()
     searchCities()
+
+}
+
+// Function som får edit och remove knapparna att slida fram
+function handleArrowDownClick(e){
+
+    const cityIndex = e.dataset.cityIndex;
+    const cityId = e.dataset.cityId;
+    console.log(typeof e)
+    console.log(e, 'Detta är e')
+
+
+    // Hämta det aktuella cityInfoDiv-elementet baserat på cityIndex
+    let whichCityInfoDiv = document.getElementById('citieList' + cityIndex);
+
+    // Hämta det specifika slide-down-elementet för det aktuella cityInfoDiv-elementet
+    let slideDownElement = whichCityInfoDiv.querySelector('#slide-down-on-arrow-down' + cityIndex);
+
+    // Uppdatera klassen för att visa slide-down-elementet
+    slideDownElement.classList.toggle("slidein");
+
+    // Använd cityId för att utföra åtgärder för den specifika staden
+    console.log(`Arrow down clicked for city ${cityId}`);
+
+
+}
+
+
+function removeCity(e){
+
+    const removeCityId = e.dataset.cityId;
+
+    let promise = fetch('https://avancera.app/cities/' + removeCityId,{
+
+    body: JSON.stringify({  id: removeCityId, }),
+    headers: {
+
+        'Content-Type': 'application/json'
+    },
+        method: 'DELETE'
+
+})
+
+promise
+  .then(response => {
+    console.log(response, "respomse remove city")
+
+    let someOtherPromise = response.json()
+
+    return someOtherPromise
+  })
+
+  .then(result => {
+    console.log(result, "resultat remove city")
+    populateDropDownMenu()
+    searchCities()
+  })
+
 
 }
