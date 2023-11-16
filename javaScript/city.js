@@ -71,7 +71,7 @@ async function searchCities() {
                           </div>
                         <div id="city-list-btn-wrapper">
                         <div id="slide-down-on-arrow-down${i}" class="slide-down-on-arrow-down">
-                        <button data-city-id=${result[i].id} id="edit-selected-city" onclick="editCity(this)">Edit</button>
+                        <button data-city-index="${i}" data-city-id=${result[i].id} id="edit-selected-city" onclick="editCity(this)">Edit</button>
                         <button data-city-id=${result[i].id} id="remove-selected-city" onclick="removeCity(this)">Remove</button>
                         </div>
 
@@ -94,7 +94,7 @@ async function searchCities() {
                 </div>
                 <div id="city-list-btn-wrapper">
                 <div id="slide-down-on-arrow-down${i}" class="slide-down-on-arrow-down">
-                <button data-city-id=${result.id} id="edit-selected-city" onclick="editCity(this)">Edit</button>
+                <button data-city-index="${i}" data-city-id=${result.id} id="edit-selected-city" onclick="editCity(this)">Edit</button>
                 <button data-city-index="${i}" data-city-id=${result.id} id="remove-selected-city" onclick="removeCity(this)">Remove</button>
                 </div>
 
@@ -242,8 +242,17 @@ function removeCity(e) {
 function editCity(e){
 
     const editCityId = e.dataset.cityId;
+    const editCityIndex = e.dataset.cityIndex
 
 
+    let cityNameText = document.querySelector('#name-population-wrapper' + editCityIndex + ' h2');
+    let populationText = document.querySelector('#name-population-wrapper' + editCityIndex + ' p');
+
+    cityNameText.classList.toggle('edit')
+    populationText.classList.toggle('edit')
+
+    console.log(cityNameText + populationText)
+    console.log(editCityIndex)
 }
 
 

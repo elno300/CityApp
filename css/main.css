@@ -402,6 +402,12 @@ h2{
     border: solid 1px #FFF;
 }
 
+.edit {
+    cursor: pointer;
+    border-bottom: 1px dashed rgb(137, 19, 19);
+    width: fit-content;
+  }
+
 /*==============================*/
 /*========= Responsive =========*/
 /*==============================*/
