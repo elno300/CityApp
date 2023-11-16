@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .editable {
+        cursor: pointer;
+        border-bottom: 1px dashed blue;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="editableParagraph" class="editable" onclick="makeEditable()">
+      Click me to edit this paragraph.
+    </p>
+
+    <script>
+      function makeEditable() {
+        var paragraph = document.getElementById("editableParagraph");
+        var originalText = paragraph.innerHTML;
+
+        var inputField = document.createElement("input");
+        inputField.value = originalText;
+
+        inputField.addEventListener("blur", function () {
+          paragraph.innerHTML = this.value;
+          paragraph.classList.remove("editable");
+        });
+
+        paragraph.innerHTML = "";
+        paragraph.appendChild(inputField);
+        inputField.focus();
+      }
+    </script>
+  </body>
+</html>

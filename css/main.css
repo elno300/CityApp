@@ -295,27 +295,34 @@ legend{
     max-width: 300px;
     /* height:500px; */
     height: fit-content;
+    min-height: min-content;
     max-height: 500px;
     overflow-y: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-
+    transition: height 2s ease;
 }
+
+
+/* //////////////////////////////////////////// */
+
+.slide-out {
+    height: 0px; /* Ange önskad höjd när den är synlig */
+}
+
+/* .remove-cities-list{
+    height: 0;
+    overflow: hidden;
+} */
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 #cities-list::-webkit-scrollbar{
         display: none;
 }
 
-/* #cities-list.scroll{
-    overflow-x: auto;
-    overflow-y: hidden;
-    height: 900px;
-} */
-
 h2{
     color: #000;
-    font-family: karla-bold;
+    font-family: karla-bold, Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 32px;
     font-style: normal;
@@ -327,11 +334,9 @@ h2{
     margin-top: 20px;
     margin-bottom: 50px;
     border-bottom: solid black 1px;
-    /* padding-bottom: 20px; */
 }
 
 .citieList p{
-    /* background-color: brown; */
     margin-top: 1px;
     padding-top: 0;
     font-family: karla, Arial, Helvetica, sans-serif;
@@ -383,14 +388,9 @@ h2{
 #edit-selected-city, #remove-selected-city{
     background: rgba(191, 127, 127, 0.52);
     backdrop-filter: blur(3px);
-    /* margin-left: 10px; */
-    /* width: 45px; */
     height:fit-content;
     height: 30px;
-    /* padding: 3px; */
     width: 90px;
-    /* padding: 8px 15px; */
-    /* margin-top: 15px; */
     border-radius: 15px;
     cursor: pointer;
     border: none;
@@ -400,7 +400,6 @@ h2{
     font-size: medium;
     color: #FFF;
     border: solid 1px #FFF;
-
 }
 
 /*==============================*/

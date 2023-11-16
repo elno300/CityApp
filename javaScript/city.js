@@ -68,14 +68,14 @@ async function searchCities() {
                         <div id="name-population-wrapper${i}">
                         <h2>${result[i].name}</h2>
                         <p>Population: ${result[i].population}</p>
-                        </div>
+                          </div>
                         <div id="city-list-btn-wrapper">
                         <div id="slide-down-on-arrow-down${i}" class="slide-down-on-arrow-down">
                         <button data-city-id=${result[i].id} id="edit-selected-city" onclick="editCity(this)">Edit</button>
                         <button data-city-id=${result[i].id} id="remove-selected-city" onclick="removeCity(this)">Remove</button>
                         </div>
 
-                        <svg data-city-index="${i}" data-city-id=${result[i].id} data-apa="hej" class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" onclick="handleArrowDownClick(this)">
+                        <svg data-city-index="${i}" data-city-id=${result[i].id} class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" onclick="handleArrowDownClick(this)">
                         <path d="M6 9l6 6 6-6"/>
                         </svg>
                         </div>
@@ -84,21 +84,26 @@ async function searchCities() {
 
         } else {
 
+            i = 'oneCitySelected'
+
             citiesToList = `
-                <div class="citieList">
+            <div class="citieList" id="citieList${i}">
+                <div id="name-population-wrapper${i}">
                     <h2>${result.name}</h2>
                     <p>Population: ${result.population}</p>
                 </div>
                 <div id="city-list-btn-wrapper">
-                <div id="slide-down-on-arrow-down" class="slide-down-on-arrow-down">
-                <button id="edit-selected-city">Edit</button>
-                <button data-city-id=${result.id} id="remove-selected-city">Remove</button>
+                <div id="slide-down-on-arrow-down${i}" class="slide-down-on-arrow-down">
+                <button data-city-id=${result.id} id="edit-selected-city" onclick="editCity(this)">Edit</button>
+                <button data-city-index="${i}" data-city-id=${result.id} id="remove-selected-city" onclick="removeCity(this)">Remove</button>
                 </div>
 
-                <svg data-city-index="0" data-city-id=${result.id} class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" onclick="handleArrowDownClick(this)">
+                <svg data-city-index="${i}" data-city-id="${result.id}" class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" onclick="handleArrowDownClick(this)">
                 <path d="M6 9l6 6 6-6"/>
                 </svg>
-                </div>`;
+                </div>
+            </div>`;
+
         }
         // Skriv ut städer eller stad
         listOfSelected.innerHTML = citiesToList;
@@ -199,6 +204,7 @@ function handleArrowDownClick(e){
 function removeCity(e) {
 
     const removeCityId = e.dataset.cityId;
+    const cityIndex = e.dataset.cityIndex;
 
     let promise = fetch('https://avancera.app/cities/' + removeCityId,{
 
@@ -214,7 +220,21 @@ function removeCity(e) {
     .then(response => {
     console.log(response)
     populateDropDownMenu();
-    searchCities();
+
+    if(cityIndex === 'oneCitySelected'){
+
+        let closeThisDiv= document.getElementById('citieListoneCitySelected')
+            closeThisDiv.remove();
+
+        let citieContainer =   document.getElementById('cities-list')
+        // citieContainer.style.display = 'none';
+        citieContainer.classList.toggle('slide-out')
+
+    }
+    else{
+        searchCities();
+
+    }
 
     })
 }
@@ -222,6 +242,24 @@ function removeCity(e) {
 function editCity(e){
 
     const editCityId = e.dataset.cityId;
-    
+
 
 }
+
+
+
+// <div class="citieList" id="citieList">
+// <h2>${result.name}</h2>
+// <p>Population: ${result.population}</p>
+// </div>
+// <div id="city-list-btn-wrapper">
+//     <div id="slide-down-on-arrow-down${i}" class="slide-down-on-arrow-down">
+//     <button data-city-id=${result.id} id="edit-selected-city" onclick="editCity(this)">Edit</button>
+//     <button data-city-id=${result.id} id="remove-selected-city" onclick="removeCity(this)">Remove</button>
+//     </div>
+
+//     <svg data-city-index="${i}" data-city-id=${result.id} class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" onclick="handleArrowDownClick(this)">
+//     <path d="M6 9l6 6 6-6"/>
+//     </svg>
+// </div>
+// </div>
