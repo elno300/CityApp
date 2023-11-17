@@ -71,7 +71,7 @@ async function searchCities() {
                           </div>
                         <div id="city-list-btn-wrapper">
                         <div id="slide-down-on-arrow-down${i}" class="slide-down-on-arrow-down">
-                        <button data-city-id=${result[i].id} id="edit-selected-city" onclick="editCity(this)">Edit</button>
+                        <button data-city-index="${i}" data-city-id=${result[i].id} id="edit-selected-city" onclick="editCity(this)">Edit</button>
                         <button data-city-id=${result[i].id} id="remove-selected-city" onclick="removeCity(this)">Remove</button>
                         </div>
 
@@ -94,7 +94,7 @@ async function searchCities() {
                 </div>
                 <div id="city-list-btn-wrapper">
                 <div id="slide-down-on-arrow-down${i}" class="slide-down-on-arrow-down">
-                <button data-city-id=${result.id} id="edit-selected-city" onclick="editCity(this)">Edit</button>
+                <button data-city-index="${i}" data-city-id=${result.id} id="edit-selected-city" onclick="editCity(this)">Edit</button>
                 <button data-city-index="${i}" data-city-id=${result.id} id="remove-selected-city" onclick="removeCity(this)">Remove</button>
                 </div>
 
@@ -242,24 +242,16 @@ function removeCity(e) {
 function editCity(e){
 
     const editCityId = e.dataset.cityId;
+    const editCityIndex = e.dataset.cityIndex
 
+
+    let cityNameText = document.querySelector('#name-population-wrapper' + editCityIndex + ' h2');
+    let populationText = document.querySelector('#name-population-wrapper' + editCityIndex + ' p');
+
+    cityNameText.classList.toggle('edit')
+    populationText.classList.toggle('edit')
+
+    console.log(cityNameText + populationText)
+    console.log(editCityIndex)
 
 }
-
-
-
-// <div class="citieList" id="citieList">
-// <h2>${result.name}</h2>
-// <p>Population: ${result.population}</p>
-// </div>
-// <div id="city-list-btn-wrapper">
-//     <div id="slide-down-on-arrow-down${i}" class="slide-down-on-arrow-down">
-//     <button data-city-id=${result.id} id="edit-selected-city" onclick="editCity(this)">Edit</button>
-//     <button data-city-id=${result.id} id="remove-selected-city" onclick="removeCity(this)">Remove</button>
-//     </div>
-
-//     <svg data-city-index="${i}" data-city-id=${result.id} class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" onclick="handleArrowDownClick(this)">
-//     <path d="M6 9l6 6 6-6"/>
-//     </svg>
-// </div>
-// </div>
