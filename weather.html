@@ -11,8 +11,12 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- <link rel="stylesheet" href="/css/main.css"> -->
+
+    <!-- Extra bibliotek som inte finns i javascript annars, just detta bibliotek är ett datavisualiseringsbibliotek med chart-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
+    <article id="firstPage">
     <header>
       <nav>
         <h1>CITY APP</h1>
@@ -36,19 +40,27 @@
             ></i>
           </button>
         </div>
+        <button id="chart-btn">Chart</button>
+        <button id="weather-btn">Weather</button>
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="square" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg> -->
 
         <div id="weather-report-container">
           <div id="temp-svg-wrapper">
             <div id="temperature-container"></div>
             <div id="weather-symbol-container"></div>
           </div>
-         
-          <div id="wind-precipitation-wrapper">
+
+          <div id="wind-precipitation-wrapper" >
             <div id="wind-container"></div>
             <div id="precipitation-container"></div>
           </div>
         </div>
+        <div id="chart-container" style="display: none;">
+          <canvas id="weather-chart"></canvas>
+        </div>
       </section>
+    </article>
+
       <!-- <img src="media/fall.jpg" alt="fall" /> -->
     </main>
     <script src="javaScript/weather.js"></script>

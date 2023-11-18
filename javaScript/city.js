@@ -296,7 +296,7 @@ function editCity(e) {
         // editCityNameInput.value = cityNameElement.innerText;
         // editCityPopulationInput.value = population;
           let editButton = document.getElementById('edit-selected-city')
-            editButton.innerHTML = 'Ok'
+            editButton.innerHTML = 'Save'
 
     } else {
 

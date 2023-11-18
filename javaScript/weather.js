@@ -7,6 +7,11 @@ const precipitationContainer = document.getElementById('precipitation-container'
 let weatherSymbol;
 let cityInput = document.getElementById('search-weather');
 
+let temperatureChart;
+
+let citiesArray = [];
+let temperaturesArray = []
+
 // Här hämtas det senast sparade värdet
 let saveCity = localStorage.getItem('saveCity');
 
@@ -57,6 +62,114 @@ async function getWeather(){
     temperaturContainer.innerHTML =`<p id="temperature">${Math.round(currentTemperature)}°C</p>`
     windContainer.innerHTML =`<p id="wind">${Math.round(windSpeed)} m/s`
     precipitationContainer.innerHTML =` <p id="precipitation">Precipitation: ${Math.round(precipitation)}</p>`
+
+    // =============== CHART ===================//
+
+    console.log(cityInputValue, currentTemperature)
+    let cityNameAsLowerCase = cityInputValue.toLowerCase();
+
+    if (citiesArray.map(value => value.toLowerCase()).includes(cityNameAsLowerCase)) {
+      console.log('The city already exists');
+    } else {
+      console.log('The city didn\'t already exist');
+      console.log(cityInputValue, 'stadens namn');
+      citiesArray.push(cityInputValue);
+      temperaturesArray.push(Math.round(currentTemperature));
+      console.log(citiesArray, 'stads array');
+
+
+      console.log(temperatureChart, 'charten innan den skrivs ut');
+
+      if (!temperatureChart) {
+        temperatureChart = document.getElementById('weather-chart');
+        // Skapa ett nytt diagram om det inte redan finns
+        temperatureChart = new Chart(document.getElementById('weather-chart'), {
+          type: 'line',
+          data: {
+            labels: citiesArray,
+            datasets: [{
+              label: 'Temperature',
+              data: temperaturesArray,
+              backgroundColor: '#eebcae',
+              borderColor: 'red',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      } else {
+        console.log('citiesArray:', citiesArray);
+        console.log('temperaturesArray:', temperaturesArray);
+
+        // Uppdatera befintligt diagram om det redan finns
+        temperatureChart.data.labels = citiesArray;
+        temperatureChart.data.datasets[0].data = temperaturesArray;
+        temperatureChart.update();
+      }
+    }
+
+
+
+    // console.log(cityInputValue, currentTemperature)
+    // let cityNameAsLowerCase = cityInputValue.toLowerCase();
+
+    // if(citiesArray.map(value => value.toLowerCase()).includes(cityNameAsLowerCase)){
+
+    //   console.log('The city alresdy exists')
+
+    // }
+
+    // else{
+    //   console.log('The city didnt already exist')
+    //   console.log(cityInputValue, 'stadens namn')
+    //   citiesArray.push(cityInputValue)
+    //   temperaturesArray.push(Math.round(currentTemperature))
+    //   console.log(citiesArray, ' stads array')
+
+    //   temperatureChart = document.getElementById('weather-chart');
+    //   console.log(temperatureChart, 'charten innan den skrivs ut')
+    //   let firstChart;
+    //       if (!firstChart) {
+    //         firstChart = 'filled'
+    //         // Skapa ett nytt diagram om det inte redan finns
+    //         new Chart(temperatureChart, {
+    //           type: 'bar',
+    //           data: {
+    //             labels: citiesArray,
+    //             datasets: [{
+    //               label: 'Temperature',
+    //               data: temperaturesArray,
+    //               backgroundColor: '#eebcae',
+    //               borderColor: 'red',
+    //               borderWidth: 1
+    //             }]
+    //           },
+    //           options: {
+    //             scales: {
+    //               y: {
+    //                 beginAtZero: true
+    //               }
+    //             }
+    //           }
+    //         });
+    //   }
+    //   else{
+
+    //     console.log('citiesArray:', citiesArray);
+    //     console.log('temperaturesArray:', temperaturesArray);
+
+    //      // Uppdatera befintligt diagram om det redan finns
+    //     temperatureChart.data.labels = citiesArray;
+    //     temperatureChart.data.datasets[0].data = temperaturesArray;
+    //     temperatureChart.update();
+    //   }
+    // }
 
 
     // weatherCode har fått en siffra som är kopplat till ett specifikt väderförhållande.
@@ -136,3 +249,23 @@ async function getWeather(){
     // textrutan eller om koordinaterna inte hittas för staden.
 
   }
+
+
+  // let showWeather1 = document.getElementById('weather-report-container');
+  // let showWeather2 = document.getElementById('wind-precipitation-wrapper');
+  // let showChart = document.getElementById('chart-container');
+
+  // function showChart() {
+  //   showWeather1.style.display = 'none';
+  //   showWeather2.style.display = 'none';
+  //   showChart.style.display = 'block';
+  // }
+
+  // function showWeather1() {
+  //   showWeather1.style.display = 'inline-block';
+  //   showWeather2.style.display = 'block';
+  //   showChart.style.display = 'none';
+  // }
+
+  // document.getElementById('chart-btn').addEventListener("click", showChart);
+  // document.getElementById('weather-btn').addEventListener("click", showWeather1);

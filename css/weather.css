@@ -1,14 +1,22 @@
 body{
     margin: auto;
-    /* background-color: aquamarine; */
+    /* background-image: url(../media/img/Lake.jpg);
+    background-color: rgb(37, 37, 69);
+    background-position: center; */
+}
+
+#firstPage{
     background-image: url(../media/img/Lake.jpg);
     background-color: rgb(37, 37, 69);
-
     background-position: center;
-    /* backdrop-filter:unset; */
-    /* filter: ; */
-
+    /* height: 100vh; */
+    height: 110vh;
+    min-height: 800px;
+    max-height: 9000px;
+    width: 100vw;
+    margin: auto;
 }
+
 
 @font-face {
     font-family: Kodchasan;
@@ -246,6 +254,13 @@ a{
     /* width: 100px; */
     width: 60px;
     padding-left: 2vw;
+}
+
+chartSection{
+    background-color: fuchsia;
+    width: 100vw;
+    height: 100%;
+
 }
 
 
