@@ -8,15 +8,18 @@ let weatherSymbol;
 let cityInput = document.getElementById('search-weather');
 
 let temperatureChart;
-
 let citiesArray = [];
 let temperaturesArray = []
 
-// Här hämtas det senast sparade värdet
+// Local storage av stadens namn
 let saveCity = localStorage.getItem('saveCity');
+let saveCitiesArray = localStorage.getItem('saveCitiesArray')
+let saveTemperaturesArray = localStorage.getItem('saveTemperaturesArray')
 
+// Denna körs en gång och lägger in det senast sparade värdet
 if(saveCity){
   cityInput.value = saveCity;
+
   // Functionen körs för att uppdatera med aktuell väderprognos
   getWeather();
 }
@@ -66,6 +69,8 @@ async function getWeather(){
     // =============== CHART ===================//
 
     console.log(cityInputValue, currentTemperature)
+
+    //Gör om inputvärdet till småbokstäver för att kunna jämföra med de namn som finns i citiesArrayen
     let cityNameAsLowerCase = cityInputValue.toLowerCase();
 
     if (citiesArray.map(value => value.toLowerCase()).includes(cityNameAsLowerCase)) {
@@ -73,8 +78,14 @@ async function getWeather(){
     } else {
       console.log('The city didn\'t already exist');
       console.log(cityInputValue, 'stadens namn');
+
+      // Här läggs staden och temperaturen till i varsin array.
+
       citiesArray.push(cityInputValue);
       temperaturesArray.push(Math.round(currentTemperature));
+
+      localStorage.setItem('saveCitiesArray', citiesArray)
+      localStorage.setItem('saveTemperaturesArray', temperaturesArray)
       console.log(citiesArray, 'stads array');
 
 
@@ -250,22 +261,22 @@ async function getWeather(){
 
   }
 
+  document.getElementById('chart-btn').addEventListener("click", showWeatherChart);
+  document.getElementById('weather-btn').addEventListener("click", showWeatherReport);
 
-  // let showWeather1 = document.getElementById('weather-report-container');
+
+  let showWeather1 = document.getElementById('weather-report-container');
   // let showWeather2 = document.getElementById('wind-precipitation-wrapper');
-  // let showChart = document.getElementById('chart-container');
+  let addChart = document.getElementById('chart-container');
 
-  // function showChart() {
-  //   showWeather1.style.display = 'none';
-  //   showWeather2.style.display = 'none';
-  //   showChart.style.display = 'block';
-  // }
+  function showWeatherChart() {
+    showWeather1.style.display = 'none';
+    addChart.style.display = 'block';
 
-  // function showWeather1() {
-  //   showWeather1.style.display = 'inline-block';
-  //   showWeather2.style.display = 'block';
-  //   showChart.style.display = 'none';
-  // }
+  }
 
-  // document.getElementById('chart-btn').addEventListener("click", showChart);
-  // document.getElementById('weather-btn').addEventListener("click", showWeather1);
+  function showWeatherReport() {
+    showWeather1.style.display = 'block';
+    addChart.style.display = 'none';
+
+  }

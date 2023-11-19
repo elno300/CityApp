@@ -1,13 +1,13 @@
 body{
     margin: auto;
-    /* background-image: url(../media/img/Lake.jpg);
-    background-color: rgb(37, 37, 69);
-    background-position: center; */
+    top:0;
+    background-image: url(../media/img/Lake.jpg);
+    background-position: center;
 }
 
 #firstPage{
-    background-image: url(../media/img/Lake.jpg);
-    background-color: rgb(37, 37, 69);
+
+    background-color: rgba(37, 37, 69, 0.832);
     background-position: center;
     /* height: 100vh; */
     height: 110vh;
@@ -17,6 +17,9 @@ body{
     margin: auto;
 }
 
+/*==============================*/
+/*============ Fonter =============*/
+/*==============================*/
 
 @font-face {
     font-family: Kodchasan;
@@ -24,26 +27,9 @@ body{
 }
 
 @font-face {
-    font-family: MergeOne;
-    src: url('fonts/MergeOne_FontFamily/MergeOne400.ttf') format('truetype');
-}
-
-
-@font-face {
-    font-family: Jura;
-    src: url('fonts/Jura/Jura-VariableFont_wght.ttf') format('truetype');
-}
-
-@font-face {
     font-family: karla;
     src: url('fonts/Karla/static/Karla-ExtraLight.ttf') format('truetype');
     font-weight: 400;
-}
-
-@font-face {
-    font-family: karla-bold;
-    src: url('fonts/Karla/static/Karla-Bold.ttf') format('truetype');
-    font-weight: 700;
 }
 
 
@@ -93,29 +79,17 @@ a{
 }
 
 
-/* ===================== */
+/* ================================================= */
+/* ====== Content - Väder-rapport fönster osv ====== */
+/* ================================================= */
 
 .background{
-
-    /* background-color:rgba(10, 12, 31, 0.762); */
     width: 100vw;
     /* height: 100vh; */
     display: flex;
     justify-content: center;
     margin-top: 10vh;
-
 }
-
-/* .background::before{
-    content: '';
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: linear-gradient(rgb(249, 225, 9),rgb(226, 18, 181));
-    border-radius: 50%;
-    transform: translate(-230px,200px);
-    background-image: url(/media/img/Lake.jpg);
-} */
 
 .transparent-window{
     position: relative;
@@ -127,7 +101,7 @@ a{
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(225, 225, 225, 0.62);
     border-right: 1px solid rgba(240, 248, 255, 0.204);
-    border-bottom: 1px solid rgba(red, green, blue, 0.2);
+    border-bottom: 1px solid rgba(225, 225, 225, 0.2);
     border-radius: 10px;
     backdrop-filter: blur(25px);
     padding: 2vw 5vw;
@@ -152,7 +126,6 @@ a{
 #weather-search-btn:hover{
     border-color: #FFF;
     border: solid 1px #FFF;
-
 }
 
 #weather-search-btn:hover #magnifying-glass{
@@ -193,7 +166,7 @@ a{
 #temp-svg-wrapper, #wind-precipitation-wrapper{
     /* background-color: darkblue; */
     display: flex;
-    height: 50%;
+    height: 45%;
     width: 100%;
 }
 
@@ -230,17 +203,17 @@ a{
 }
 
 #temperature{
-    /* font-family: karla-bold; */
     font-size: 68px;
     padding-right: 2vw;
 }
+
 #wind{
     padding-right: 2vw;
 }
+
 #precipitation{
     /* padding-left: 2vw; */
     margin-left: 2vw;
-    /* background-color: coral; */
 }
 
 #weather-symbol{
@@ -249,21 +222,45 @@ a{
     width: 60px;
     padding-left: 2vw;
 }
+
 #Lager_2{
     fill: #ffffffe6;
-    /* width: 100px; */
     width: 60px;
     padding-left: 2vw;
 }
 
-chartSection{
-    background-color: fuchsia;
-    width: 100vw;
-    height: 100%;
-
+#chart-container{
+    /* background-color: fuchsia; */
+    width: 100%;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
+#chart-whater-btn-container{
+    margin-left: 10px;
+}
 
+#chart-btn, #weather-btn{
+    background: rgba(255, 255, 255, 0.535);
+    color: #ffffffdb;
+    margin-bottom: 10px;
+    width: fit-content;
+    padding: 3px 8px;
+    border-radius: 15px;
+    cursor: pointer;
+    border:#ffffff;
+    font-family: karla, Arial, Helvetica, sans-serif;
+}
+
+#chart-btn:hover{
+    border: solid 1px #FFF;
+}
+
+#weather-btn:hover{
+    border: solid 1px #FFF;
+}
 
 /* @media  screen and (min-width: 769px){ */
 

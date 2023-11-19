@@ -165,6 +165,7 @@ function addNewCity() {
     } else if (!inputNewCityName && inputNewPopulation !== "") {
 
         cityInput.style.border = '1px solid red';
+        errorMessageP.innerHTML = `<p>Please, type in city name</p>`;
 
     } else {
 

@@ -16,52 +16,56 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
-    <article id="firstPage">
-    <header>
-      <nav>
-        <h1>CITY APP</h1>
-        <ul id="menu">
-          <li><a href="#about">About</a></li>
-          <li><a href="weather.html">Weather</a></li>
-          <li><a href="index.html">Cities</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main class="background">
-      <section class="transparent-window">
-        <!-- <p>Type in a city to get a current weather report</p> -->
-        <div id="inputfield-btn-wrapper">
-          <input type="text" id="search-weather" placeholder="City name.." />
-          <button type="submit" id="weather-search-btn">
-            <i
-              id="magnifying-glass"
-              class="bi bi-search"
-              aria-hidden="true"
-            ></i>
-          </button>
-        </div>
-        <button id="chart-btn">Chart</button>
-        <button id="weather-btn">Weather</button>
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="square" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg> -->
+    <main>
+      <div id="firstPage">
+        <header>
+          <nav>
+            <h1>CITY APP</h1>
+            <ul id="menu">
+              <li><a href="#about">About</a></li>
+              <li><a href="weather.html">Weather</a></li>
+              <li><a href="index.html">Cities</a></li>
+            </ul>
+          </nav>
+        </header>
+        <div class="background">
+          <section class="transparent-window">
+            <!-- <p>Type in a city to get a current weather report</p> -->
+            <div id="inputfield-btn-wrapper">
+              <input
+                type="text"
+                id="search-weather"
+                placeholder="City name.."
+              />
+              <button type="submit" id="weather-search-btn">
+                <i
+                  id="magnifying-glass"
+                  class="bi bi-search"
+                  aria-hidden="true"
+                ></i>
+              </button>
+            </div>
+            <div id="chart-whater-btn-container">
+              <button id="chart-btn">Chart</button>
+              <button id="weather-btn">Weather</button>
+            </div>
+            <div id="weather-report-container">
+              <div id="temp-svg-wrapper">
+                <div id="temperature-container"></div>
+                <div id="weather-symbol-container"></div>
+              </div>
 
-        <div id="weather-report-container">
-          <div id="temp-svg-wrapper">
-            <div id="temperature-container"></div>
-            <div id="weather-symbol-container"></div>
-          </div>
-
-          <div id="wind-precipitation-wrapper" >
-            <div id="wind-container"></div>
-            <div id="precipitation-container"></div>
-          </div>
+              <div id="wind-precipitation-wrapper">
+                <div id="wind-container"></div>
+                <div id="precipitation-container"></div>
+              </div>
+            </div>
+            <div id="chart-container" style="display: none">
+              <canvas id="weather-chart"></canvas>
+            </div>
+          </section>
         </div>
-        <div id="chart-container" style="display: none;">
-          <canvas id="weather-chart"></canvas>
-        </div>
-      </section>
-    </article>
-
-      <!-- <img src="media/fall.jpg" alt="fall" /> -->
+      </div>
     </main>
     <script src="javaScript/weather.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
