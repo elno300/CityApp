@@ -90,7 +90,7 @@ async function getWeather(){
 
 
       console.log(temperatureChart, 'charten innan den skrivs ut');
-
+      // Chart.defaults.color = '#fff';
       if (!temperatureChart) {
         temperatureChart = document.getElementById('weather-chart');
         // Skapa ett nytt diagram om det inte redan finns
@@ -101,16 +101,22 @@ async function getWeather(){
             datasets: [{
               label: 'Temperature',
               data: temperaturesArray,
-              backgroundColor: '#eebcae',
+              backgroundColor: 'white',
               borderColor: 'red',
+              color: '#fff',
               borderWidth: 1
+
+
             }]
           },
           options: {
             scales: {
               y: {
-                beginAtZero: true
+                beginAtZero: true,
+
+
               }
+
             }
           }
         });
@@ -122,65 +128,11 @@ async function getWeather(){
         temperatureChart.data.labels = citiesArray;
         temperatureChart.data.datasets[0].data = temperaturesArray;
         temperatureChart.update();
+
+
       }
     }
 
-
-
-    // console.log(cityInputValue, currentTemperature)
-    // let cityNameAsLowerCase = cityInputValue.toLowerCase();
-
-    // if(citiesArray.map(value => value.toLowerCase()).includes(cityNameAsLowerCase)){
-
-    //   console.log('The city alresdy exists')
-
-    // }
-
-    // else{
-    //   console.log('The city didnt already exist')
-    //   console.log(cityInputValue, 'stadens namn')
-    //   citiesArray.push(cityInputValue)
-    //   temperaturesArray.push(Math.round(currentTemperature))
-    //   console.log(citiesArray, ' stads array')
-
-    //   temperatureChart = document.getElementById('weather-chart');
-    //   console.log(temperatureChart, 'charten innan den skrivs ut')
-    //   let firstChart;
-    //       if (!firstChart) {
-    //         firstChart = 'filled'
-    //         // Skapa ett nytt diagram om det inte redan finns
-    //         new Chart(temperatureChart, {
-    //           type: 'bar',
-    //           data: {
-    //             labels: citiesArray,
-    //             datasets: [{
-    //               label: 'Temperature',
-    //               data: temperaturesArray,
-    //               backgroundColor: '#eebcae',
-    //               borderColor: 'red',
-    //               borderWidth: 1
-    //             }]
-    //           },
-    //           options: {
-    //             scales: {
-    //               y: {
-    //                 beginAtZero: true
-    //               }
-    //             }
-    //           }
-    //         });
-    //   }
-    //   else{
-
-    //     console.log('citiesArray:', citiesArray);
-    //     console.log('temperaturesArray:', temperaturesArray);
-
-    //      // Uppdatera befintligt diagram om det redan finns
-    //     temperatureChart.data.labels = citiesArray;
-    //     temperatureChart.data.datasets[0].data = temperaturesArray;
-    //     temperatureChart.update();
-    //   }
-    // }
 
 
     // weatherCode har fått en siffra som är kopplat till ett specifikt väderförhållande.
@@ -280,3 +232,6 @@ async function getWeather(){
     addChart.style.display = 'none';
 
   }
+
+
+  

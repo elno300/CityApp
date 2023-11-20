@@ -40,7 +40,7 @@ document.getElementById('city-search-button').addEventListener('click', searchCi
 
 async function searchCities() {
 
-    // document.getElementById('cities-list').style.display = "inline";
+
     // Visar elementet som ska fyllas på med städer
     listOfSelected.style.display = 'inline';
 
@@ -152,31 +152,31 @@ function addNewCity() {
         cityInput.value =""
         populationInput.value=""
 
-        errorMessageP.innerHTML = `<p id="added-city-fade">${inputNewCityName} city has been added to the list</p>`
+        errorMessageP.innerHTML = `<p id="added-city-message-fade">*${inputNewCityName} has been added to the list.</p>`
+
         addCityToCities(inputNewCityName,inputNewPopulation)
 
 
     } else if (!inputNewPopulation && inputNewCityName !== "") {
 
         populationInput.style.border = '1px solid red';
-        alert('Population field is empty');
-        errorMessageP.innerHTML = `<p>Please, fill in population for the city</p>`;
+        errorMessageP.innerHTML = `<p id="added-city-message-fade">*Please, fill in population for the city.</p>`;
 
     } else if (!inputNewCityName && inputNewPopulation !== "") {
 
         cityInput.style.border = '1px solid red';
-        errorMessageP.innerHTML = `<p>Please, type in city name</p>`;
+        errorMessageP.innerHTML = `<p id="added-city-message-fade">*Please, type in city name.</p>`;
 
     } else {
 
         populationInput.style.border = '1px solid red';
         cityInput.style.border = '1px solid red';
-        errorMessageP.innerHTML = `<p>Please, type in city name and population correctly</p>`;
+        errorMessageP.innerHTML = `<p id="added-city-message-fade">*Please, type in a city name and population correctly.</p>`;
 
     }
 }
 
-// Fonction for adding city
+// Function for adding city
 function addCityToCities(name, population){
 
    fetch('https://avancera.app/cities/',{
