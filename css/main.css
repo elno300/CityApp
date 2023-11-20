@@ -153,8 +153,10 @@ p{
 /* Eller bara form */
 #cities-form1{
     width: 90vw;
-    margin-top: auto;
     max-width: 426px;
+    margin-top: auto;
+    background-color: rgba(255, 0, 0, 0.136);
+    display: flex;
 }
 
  .addNew, #search{
@@ -171,9 +173,10 @@ p{
 
 /* Drop-down field searching for one or all cities*/
 #search{
-    background: rgba(255, 255, 255, 0.70);
-    padding-right: 10px;
-    width: 86%;
+    /* padding-right: 10px; */
+    /* width: 82%; */
+    flex-grow: 1;
+
 }
 
 fieldset{
@@ -189,12 +192,17 @@ legend{
 }
 
 #drop-down-menu-plus-button{
-    /* background-color: blueviolet; */
+    /* background-color: blueviolet;
     display: flex;
     flex-direction: row;
     margin-top: auto;
     max-width: 426px;
-    justify-content: space-between;
+    justify-content: space-between; */
+
+    background-color: #535252;
+    width: 100%;
+    display: flex;
+
 }
 
 /*========================== */
@@ -202,7 +210,7 @@ legend{
 /*========================== */
 
 #city-search-button{
-    align-self: flex-end;
+    /* align-self: flex-end; */
     position: relative;
 }
 
@@ -276,12 +284,15 @@ legend{
 #input-new-population{
     flex-grow: 1;
 }
+
 #add-city-plus-button-wrapper{
+    background-color: #535252;
     width: 100%;
     display: flex;
 }
 
-
+/* ================================== */
+/* Meddelande om man lägger till stad */
 #added-city-message-fade{
     animation: fadeOut 3s ease-in 2s forwards ;
 }
