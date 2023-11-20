@@ -1,15 +1,6 @@
-/* *{
-    font-family: karla;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-} */
-
 body{
     margin: 0;
 }
-
 
 /*==============================*/
 
@@ -17,11 +8,36 @@ body{
     /* background: url("/media/img/stockholm.jpg"); */
     background-color: #eebcae;
     /* background-color: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%); */
-
-/* filter: blur(2px); */
     background-size: cover;
     background-position: center;
     height: 100vh;
+}
+
+@font-face {
+    font-family: Kodchasan;
+    src: url('fonts/Kodchasan/Kodchasan-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: MergeOne;
+    src: url('fonts/MergeOne_FontFamily/MergeOne400.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Jura;
+    src: url('fonts/Jura/Jura-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: karla;
+    src: url('fonts/Karla/static/Karla-ExtraLight.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: karla-bold;
+    src: url('fonts/Karla/static/Karla-Bold.ttf') format('truetype');
+    font-weight: 700;
 }
 
 /*==============================*/
@@ -55,7 +71,6 @@ nav h1{
 
 /* The list part with links, about weather and cities */
 nav #menu{
-    /* background-color: pink; */
     padding-left: 0;
     display: flex; /*Makes the list aligned*/
     gap: 8px;
@@ -110,7 +125,7 @@ a{
 .cities-heading1, .cities-heading2{
     /* background-color: papayawhip; */
     color: #393939;
-    font-family: Jura;
+    font-family: Jura, karla, Arial, Helvetica, sans-serif;
     font-size: 70px;
     line-height:54px;
 }
@@ -120,17 +135,14 @@ a{
 }
 
 p{
-    /* background-color: rgb(228, 215, 215); */
     color: #000;
     width: 100%;
     margin-top: 0.75rem;
     margin-bottom: auto;
     padding: 0;
-    /* font-family: Jura; */
-    font-family: karla;
-    font-size: 24px;
+    font-family: karla, Arial, Helvetica, sans-serif;
+    font-size: 20px;
     flex-grow: 1;
-
 }
 
 /*==============================*/
@@ -140,7 +152,6 @@ p{
 /* */
 /* Eller bara form */
 #cities-form1{
-    /* background-color: rgb(113, 174, 227); */
     width: 90vw;
     margin-top: auto;
     max-width: 426px;
@@ -153,7 +164,7 @@ p{
     border-radius: 24px;
     padding: 8px 40px 8px 30px;
     margin: 10px 00;
-    font-family: karla, MergeOne, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: karla, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     position: relative;
 }
@@ -162,24 +173,38 @@ p{
 #search{
     background: rgba(255, 255, 255, 0.70);
     padding-right: 10px;
-    width: 100%;
+    width: 86%;
+}
+
+fieldset{
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
 legend{
     color: #ffffffcb;/* Description text*/
-    color-interpolation-filters: blur(3px);
-    font-family: MergeOne, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: MergeOne, krla, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
 }
 
 #drop-down-menu-plus-button{
+    /* background-color: blueviolet; */
     display: flex;
+    flex-direction: row;
     margin-top: auto;
     max-width: 426px;
+    justify-content: space-between;
 }
 
 /*========================== */
 /*========= Buttons =========*/
 /*========================== */
+
+#city-search-button{
+    align-self: flex-end;
+    position: relative;
+}
 
 #city-search-button, #add-new-city-button{
     background: rgba(255, 255, 255, 0.52);
@@ -192,12 +217,6 @@ legend{
     cursor: pointer;
     border: none;
 }
-
-/* #add-new-city-button{ */
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-content: center; */
-/* } */
 
 #city-search-button:hover{
     border: solid 1px #FFF;
@@ -241,7 +260,7 @@ legend{
 #addNewCityLegend{
     color: #FFF;
     align-self: flex-start;
-    padding-left: 5vw;
+    padding-top: 5px;
 }
 
 #addNew-wrapper{
@@ -252,18 +271,18 @@ legend{
     max-width: 426px;
     padding-bottom: 3vh;
     align-self: flex-start;
-    padding-left: 5vw;
 }
+
 #input-new-population{
     flex-grow: 1;
 }
 #add-city-plus-button-wrapper{
-    /* background-color: aqua; */
     width: 100%;
     display: flex;
 }
 
-#added-city-fade, #error-message-population{
+
+#added-city-message-fade{
     animation: fadeOut 3s ease-in 2s forwards ;
 }
 
@@ -274,7 +293,14 @@ legend{
 
 #error-message-population p{
     font-size: 14px;
+    margin:0;
 }
+
+
+/* ============================================== */
+/* ============ all info om städerna ============ */
+/* ================ skrivs ut här =============== */
+
 
 #citiesInfo{
     background: #FDE0D8;
@@ -300,7 +326,7 @@ legend{
     overflow-y: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-    transition: height 2s ease;
+    /* transition: height 2s ease; */
 }
 
 
@@ -309,11 +335,6 @@ legend{
 .slide-out {
     height: 0px; /* Ange önskad höjd när den är synlig */
 }
-
-/* .remove-cities-list{
-    height: 0;
-    overflow: hidden;
-} */
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 #cities-list::-webkit-scrollbar{
@@ -359,9 +380,7 @@ h2{
 }
 
 .arrow-down:hover{
-    scale: 100%;
     background-color: #FFF;
-    border-color: solid #FFF 0.5px;
     border-radius: 15px;
 }
 
@@ -402,6 +421,35 @@ h2{
     border: solid 1px #FFF;
 }
 
+.edit {
+    cursor: pointer;
+    border-bottom: 1px dashed rgb(137, 19, 19);
+    width: fit-content;
+  }
+
+  .name-population-wrapper{
+    /* background-color: crimson; */
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+  }
+
+  .edit-city-name-input, .edit-city-population-input {
+    background: rgba(255, 255, 255, 0.70);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    border: 1px solid #FFF;
+    /* border-radius: 24px; */
+    border-radius: 15px;
+    /* padding: 8px 40px 8px 30px; */
+    padding: 4px 20px 4px 15px;
+    margin: 10px 00;
+    font-family: karla, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-size: 20px; */
+    font-size: 16px;
+    position: relative;
+  }
+
+
 /*==============================*/
 /*========= Responsive =========*/
 /*==============================*/
@@ -440,37 +488,62 @@ h2{
 
 @media  screen and (min-width: 980px){
 
+    main{
+        display: flex;
+        background-color: #eebcae;
+        /* height: 100%; */
+        align-items: center;
+        /* justify-content: center; */
+        /* justify-content: space-between; */
+        /* justify-content: space-around; */
+        }
 
+    #cities-intro-container{
+        width: 50vw;
+        /* background-color: aquamarine; */
+        display: flex;
+        justify-content: center;
+        max-height: 650px;
+        /* max-width: 600px;  */
+    }
+
+    #cities-intro-text-wrapper{
+        /* background-color: #535252; */
+        max-width: 426px;
+        width: 50vw;
+    }
+
+    #cities-intro-text-wrapper > p{
+        max-width: 426px;
+    }
+
+    #citiesInfo{
+        background-color: #eebcae00;
+        /* background-color: aqua; */
+        max-height: 900px;
+        max-width: 720px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    #cities-list{
+        /* height: 60vh; */
+        margin-top: 40px;
+        height: 383px;
+    }
 
 }
+
+/* @media  screen and (min-height: 900px){
+    main{
+        background-color: #535252;
+     padding-top: 10vh;
+
+        }
+
+} */
 /*==============================*/
 /*============ FONTS ===========*/
 /*==============================*/
-
-@font-face {
-    font-family: Kodchasan;
-    src: url(/media/fonts/Kodchasan/Kodchasan-Light.ttf);
-}
-
-@font-face {
-    font-family: MergeOne;
-    src: url(/media/fonts/MergeOne_FontFamily/MergeOne400.ttf);
-}
-
-
-@font-face {
-    font-family: Jura;
-    src: url(/media/fonts/Jura/Jura-VariableFont_wght.ttf)
-}
-
-@font-face {
-    font-family: karla;
-    src: url(/media/fonts/Karla/static/Karla-ExtraLight.ttf);
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: karla-bold;
-    src: url(/media/fonts/Karla/static/Karla-Bold.ttf);
-    font-weight: 700;
-}
