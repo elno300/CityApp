@@ -11,6 +11,7 @@ body{
     background-size: cover;
     background-position: center;
     height: 100vh;
+    min-height: fit-content;
 }
 
 @font-face {
