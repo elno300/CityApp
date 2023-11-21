@@ -12,6 +12,7 @@ body{
     background-position: center;
     height: 100vh;
     min-height: fit-content;
+    background-color: rgb(67, 20, 20);
 }
 
 @font-face {
