@@ -45,13 +45,35 @@ async function getWeather(){
 
     // Här anropas väder-apiet
     // await uttrycket axios.get promise väntar på värderna för longitud och latitdud. Utan denna delen så hade koden körts utan att få med variablerna.
-    let weatherReport = (await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitud}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon`)).data
+
+    // let weatherReport = (await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitud}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon`)).data
+
+    let weatherReport = (await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitud}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&hourly=temperature_2m&forecast_days=1`)).data
 
     //Hämtar värdena från
     const currentTemperature = weatherReport.current.temperature_2m
     const weatherCode = weatherReport.current.weather_code
     const precipitation = weatherReport.current.precipitation
     const windSpeed = weatherReport.current.wind_speed_10m
+    let temperatureArray = []
+    let dateTime = []
+
+    console.log(weatherReport)
+    console.log(weatherReport.hourly.temperature_2m.length, 'Detta är längden på apiet')
+    // console.log(weatherReport.forecast_days, 'Detta är längden på apiet')
+    const tempPerHour = []
+
+
+
+    for(let i=0; i<weatherReport.hourly.temperature_2m.length; i++){
+
+      temperatureArray.push(weatherReport.hourly.temperature_2m[i])
+      let time = weatherReport.hourly.time[i]
+      dateTime.push(time.slice(11))
+      // tempPerHour.push ({[dateTime] : tempPerHour })
+    }
+
+    console.log(temperatureArray , dateTime)
 
     //Felsöker/kollar vilka värden som hämtats
     console.log(currentTemperature,'°C')
@@ -64,7 +86,7 @@ async function getWeather(){
     // Jag har valt att runda av värdena, då jag ansåg att decimaler är ointressant i sammanhanget.
     temperaturContainer.innerHTML =`<p id="temperature">${Math.round(currentTemperature)}°C</p>`
     windContainer.innerHTML =`<p id="wind">${Math.round(windSpeed)} m/s`
-    precipitationContainer.innerHTML =` <p id="precipitation">Precipitation: ${Math.round(precipitation)}</p>`
+    precipitationContainer.innerHTML =` <span id="precipitation">Precipitation:</span><span id="precipitation"> ${Math.round(precipitation)}</span>`
 
     // =============== CHART ===================//
 
@@ -97,16 +119,14 @@ async function getWeather(){
         temperatureChart = new Chart(document.getElementById('weather-chart'), {
           type: 'line',
           data: {
-            labels: citiesArray,
+            labels: dateTime,
             datasets: [{
               label: 'Temperature',
-              data: temperaturesArray,
+              data: temperatureArray,
               backgroundColor: 'white',
               borderColor: 'red',
               color: '#fff',
               borderWidth: 1
-
-
             }]
           },
           options: {
@@ -114,19 +134,19 @@ async function getWeather(){
               y: {
                 beginAtZero: true,
 
-
               }
-
-            }
+            },
+            maintainAspectRatio: false, // Set to false to allow the chart to be responsive.
+            responsive: true, // Enable responsiveness.
           }
         });
       } else {
-        console.log('citiesArray:', citiesArray);
-        console.log('temperaturesArray:', temperaturesArray);
+        // console.log('citiesArray:', citiesArray);
+        // console.log('temperaturesArray:', temperaturesArray);
 
-        // Uppdatera befintligt diagram om det redan finns
-        temperatureChart.data.labels = citiesArray;
-        temperatureChart.data.datasets[0].data = temperaturesArray;
+        // // Uppdatera befintligt diagram om det redan finns
+        // temperatureChart.data.labels = citiesArray;
+        // temperatureChart.data.datasets[0].data = temperaturesArray;
         temperatureChart.update();
 
 
@@ -232,6 +252,3 @@ async function getWeather(){
     addChart.style.display = 'none';
 
   }
-
-
-  
