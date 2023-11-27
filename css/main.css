@@ -267,6 +267,10 @@ legend{
 /* ============================================== */
 /* ============================================== */
 
+#add-new-city-button{
+
+    position: relative;
+}
 
 #addNewCityLegend{
     color: #FFF;
