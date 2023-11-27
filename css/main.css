@@ -11,8 +11,9 @@ body{
     /* background-color: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%); */
     background-size: cover;
     background-position: center;
-    height:fit-content ;
+
     height: 100%;
+    max-width: fit-content;
 }
 
 @font-face {
@@ -197,12 +198,7 @@ legend{
 }
 
 #drop-down-menu-plus-button{
-    background-color: blueviolet;
-   /* display: flex;
-    flex-direction: row;
-    margin-top: auto;
-    max-width: 426px;
-    justify-content: space-between; */
+    /* background-color: blueviolet; */
     display: flex;
     justify-content: space-between;
     max-width: 426px;
@@ -222,7 +218,7 @@ legend{
     backdrop-filter: blur(3px);
     margin-left: 10px;
     width: 45px;
-    height: 43px;
+    height: 45px;
     margin-top: 10px;
     border-radius: 15px;
     cursor: pointer;
@@ -267,11 +263,6 @@ legend{
 /* ============================================== */
 /* ============================================== */
 
-#add-new-city-button{
-
-    position: relative;
-}
-
 #addNewCityLegend{
     color: #FFF;
     /* align-self: flex-start; */
@@ -279,27 +270,24 @@ legend{
 }
 
 #addNew-wrapper{
-    background-color: #b84040;
+    /* background-color: #b84040; */
     display: flex;
     flex-direction: column;
     width: 90vw;
     margin-top: auto;
     max-width: 426px;
     padding-bottom: 3vh;
-    /* align-self: flex-start; */
 }
 
 #input-new-population{
     flex-grow: 1;
-
+    width: 10px;
 }
 
 #add-city-plus-button-wrapper{
     display: flex;
     justify-content: space-between;
-    /* max-width: 426px; */
     width: 100%;
-    background-color: #6f4f4f;
 }
 
 /* ================================== */
