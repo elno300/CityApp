@@ -227,6 +227,9 @@ function handleArrowDownClick(e){
     cityNameElement.classList.remove('edit');
     populationElement.classList.remove('edit');
 
+    let editButton = document.getElementById('edit-selected-city')
+    editButton.innerHTML = 'Edit'
+
 
 
 }
@@ -270,6 +273,8 @@ function removeCity(e) {
     })
 }
 
+
+
 function editCity(e) {
 
     const cityIndex = e.dataset.cityIndex;
@@ -296,7 +301,7 @@ function editCity(e) {
 
         // editCityNameInput.value = cityNameElement.innerText;
         // editCityPopulationInput.value = population;
-          let editButton = document.getElementById('edit-selected-city')
+        let editButton = document.getElementById('edit-selected-city')
             editButton.innerHTML = 'Save'
 
     } else {
@@ -304,6 +309,7 @@ function editCity(e) {
         // Ta bort redigeringsklassen
         cityNameElement.classList.remove('edit');
         populationElement.classList.remove('edit');
+
 
         // Här hämtas den nya staden och populationen
         let newName = editCityNameInput.value;
