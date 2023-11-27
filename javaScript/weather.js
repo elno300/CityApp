@@ -80,13 +80,14 @@ async function getWeather(){
     console.log(currentTemperature,'°C')
     console.log(weatherCode, 'väderkod')
     console.log('precipitation: ', precipitation, 'mm')
-    console.log(windSpeed, 'm/s')
+    console.log(windSpeed/3.6, 'm/s')
     console.log(weatherReport)
 
     // Här skickas de hämtade värdena till olika element i html dokumentet.
     // Jag har valt att runda av värdena, då jag ansåg att decimaler är ointressant i sammanhanget.
     temperaturContainer.innerHTML =`<p id="temperature">${Math.round(currentTemperature)}°C</p>`
-    windContainer.innerHTML =`<p id="wind">${Math.round(windSpeed)} m/s`
+    // 3.6 omvandlar km/h till m/s
+    windContainer.innerHTML =`<p id="wind">${Math.round(windSpeed/3.6)} m/s`
     precipitationContainer.innerHTML =` <span id="precipitation">Precipitation:</span><span id="precipitation"> ${Math.round(precipitation)}</span>`
 
     // =============== CHART ===================//
@@ -111,6 +112,9 @@ async function getWeather(){
       localStorage.setItem('saveTemperaturesArray', temperaturesArray)
       console.log(citiesArray, 'stads array');
 
+      // Lägg element med function vid
+      // document.getElementById("").addEventListener("click", () => {
+      //   document.getElementById("myButton").focus();});
 
       console.log(temperatureChart, 'charten innan den skrivs ut');
       // Chart.defaults.color = '#fff';

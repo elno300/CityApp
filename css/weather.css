@@ -8,11 +8,7 @@ body{
 }
 
 #firstPage{
-
-    background-color: rgba(37, 37, 69, 0.832);
-    /* background-position: center; */
-    /* height: 100vh; */
-    /* height: 110vh; */
+    /* background-color: rgba(37, 37, 69, 0.832); */
     height: 100%;
     min-height: 800px;
     max-height: 9000px;
@@ -42,18 +38,35 @@ body{
 
 /* Heading, meny */
 header{
+    background-color: aquamarine;
     display: flex;
     justify-content: center;
+    min-width: 340px;
+
+     background:rgba(240, 248, 255, 0.204);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(225, 225, 225, 0.62);
+    border-right: 1px solid rgba(240, 248, 255, 0.204);
+    border-bottom: 1px solid rgba(225, 225, 225, 0.2);
+    backdrop-filter: blur(25px);
+    z-index: 1;
 }
 
 nav{
     width: 100vw;
-    height: 67px;
+
     padding: 00 5vw ;
-    border-bottom: 1px solid rgb(0, 0, 0);
     display: flex;
     justify-content:space-between;
     align-items: baseline;
+
+    /* background:rgba(240, 248, 255, 0.204);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(225, 225, 225, 0.62);
+    border-right: 1px solid rgba(240, 248, 255, 0.204);
+    border-bottom: 1px solid rgba(225, 225, 225, 0.2);
+    backdrop-filter: blur(25px);
+    z-index: 1; */
 }
 
 nav h1{
@@ -89,19 +102,22 @@ a{
 /* ================================================= */
 
 .background{
+    /* background-color: coral; */
     width: 100vw;
-    /* height: 100vh; */
+    height: 92vh;
+    min-height: 550px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 10vh;
-
-
+    align-items: center;
+    /* margin-top: 10vh; */
 }
+
+
 
 .transparent-window{
     /* position: relative; */
     width: 90vw;
-    width: 90%;
     max-width: 400px;
     height: fit-content;
     height: 500px;
@@ -128,8 +144,7 @@ a{
     border-radius: 15px;
     cursor: pointer;
     border: none;
-    margin-right: 1vw;
-
+    margin-right: 0;
 }
 
 #weather-search-btn:hover{
@@ -143,7 +158,7 @@ a{
 
 /* Inputfield */
 #search-weather{
-    width: 70%;
+    width: 30px;
     height: 30px;
     color: #FFF;
     background: rgba(255, 255, 255, 0.535);
@@ -154,16 +169,15 @@ a{
     margin: 10px 00;
     font-family: karla, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
-    /* font-size: 3.5vw; */
+    flex-grow: 1;
 }
 
 #inputfield-btn-wrapper{
     /* background-color: aqua; */
     display: flex;
-    justify-content: center;
-    width: 90vw;
     max-width: 400px;
     margin-top: 2vh;
+    justify-content: space-between;
 }
 
 #weather-report-container{
@@ -173,7 +187,7 @@ a{
 }
 
 #temp-svg-wrapper, #wind-precipitation-wrapper{
-    background-color: darkblue;
+    /* background-color: darkblue; */
     display: flex;
     height: 45%;
     width: 100%;
@@ -224,14 +238,6 @@ a{
     /* padding-right: 2vw; */
 }
 
-/* #wind{
-    padding-right: 2vw;
-}
-
-#precipitation{
-    margin-left: 2vw;
-} */
-
 #weather-symbol{
     fill: #ffffffe6;
     width: 4rem;
@@ -240,8 +246,8 @@ a{
 
 #chart-container{
 
-    background-color: rgba(255, 255, 255, 0.7);
-    background-color: antiquewhite;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* background-color: antiquewhite; */
     height: fit-content;
     border-radius: 25px;
     display: flex;
@@ -282,22 +288,26 @@ a{
     border: solid 1px #FFF;
 }
 
-/* @media  screen and (min-width: 769px){ */
-
-/* .transparent-window{
-    background-color: aquamarine;
-    padding: 1.5vw 2.5vw;
-    width: 50vw;
-} */
-
-/* #searchWeather{
-    /* color: aqua; */
-    /* font-size: 1.5vw;
-} */
-
-/* #inputfield-btn-wrapper{
-    margin-top: 0vh;
-} */
+@media  screen and (max-width: 500px){
 
 
-/* } */
+    .transparent-window{
+        padding: 0;
+        height: fit-content;
+        min-width: 310px;
+    }
+
+
+    #weather-content-container{
+        padding: 0vw 5vw;
+    }
+}
+
+
+@media  screen and (min-width: 700px){
+
+    .transparent-window{
+        padding: 00px 35px;
+        /* height: fit-content; */
+    }
+}

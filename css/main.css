@@ -11,9 +11,7 @@ body{
     /* background-color: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%); */
     background-size: cover;
     background-position: center;
-
     height: 100%;
-    max-width: fit-content;
 }
 
 @font-face {
@@ -96,11 +94,8 @@ a{
 /* Hela första sidan förutom naven */
 #cities-intro-container{
     /* background-color: rgb(71, 175, 175); */
-    /* height: 90svh; */
     min-height: 530px;
     height: 90vh;
-    /* max-height: ; */
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,7 +105,6 @@ a{
 #cities-intro-text-wrapper {
     /* background-color: rgb(154, 112, 216); */
     width: 90vw;
-
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -178,7 +172,6 @@ p{
     margin: 10px 00;
     font-family: karla, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
-    /* position: relative; */
 }
 
 /* Drop-down field searching for one or all cities*/
@@ -516,7 +509,8 @@ h2{
         width: 50vw;
         /* background-color: aquamarine; */
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
+        justify-content: first baseline;
         max-height: 650px;
         /* max-width: 600px;  */
     }
