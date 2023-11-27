@@ -271,19 +271,19 @@ legend{
 
 #addNewCityLegend{
     color: #FFF;
-    align-self: flex-start;
-    padding-top: 5px;
+    /* align-self: flex-start; */
+    /* padding-top: 5px; */
 }
 
 #addNew-wrapper{
-    /* background-color: #b84040; */
+    background-color: #b84040;
     display: flex;
     flex-direction: column;
     width: 90vw;
     margin-top: auto;
     max-width: 426px;
     padding-bottom: 3vh;
-    align-self: flex-start;
+    /* align-self: flex-start; */
 }
 
 #input-new-population{
@@ -294,9 +294,9 @@ legend{
 #add-city-plus-button-wrapper{
     /* background-color: #dc7777; */
     /* width: 100%; */
-    width: 90vw;
+    /* width: 90vw; */
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     max-width: 426px;
 
 }
