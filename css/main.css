@@ -8,12 +8,12 @@ body{
 #background-container{
     /* background: url("/media/img/stockholm.jpg"); */
     background-color: #eebcae;
-    background-color: #b84040;
     /* background-color: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%); */
     background-size: cover;
     background-position: center;
     height:fit-content ;
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    height: 100%;
 
 }
 
@@ -56,7 +56,7 @@ header{
 
 nav{
     width: 100vw;
-    height: 67px;
+    /* height: 67px; */
     padding: 00 5vw ;
     border-bottom: 1px solid rgb(0, 0, 0);
     display: flex;
@@ -96,10 +96,12 @@ a{
 
 /* Hela första sidan förutom naven */
 #cities-intro-container{
-    /* background-color: rgb(27, 86, 86); */
-    height: 90svh;
+    /* background-color: rgb(71, 175, 175); */
+    /* height: 90svh; */
     min-height: 530px;
-    /* width: 90vw; */
+    height: 90vh;
+    /* max-height: ; */
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -109,7 +111,8 @@ a{
 #cities-intro-text-wrapper {
     /* background-color: rgb(154, 112, 216); */
     width: 90vw;
-    height: 100vh;
+
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-items:end;
@@ -147,6 +150,7 @@ p{
     font-family: karla, Arial, Helvetica, sans-serif;
     font-size: 20px;
     flex-grow: 1;
+
 }
 
 /*==============================*/
@@ -272,7 +276,7 @@ legend{
 }
 
 #addNew-wrapper{
-    background-color: #b84040;
+    /* background-color: #b84040; */
     display: flex;
     flex-direction: column;
     width: 90vw;
@@ -288,8 +292,9 @@ legend{
 }
 
 #add-city-plus-button-wrapper{
-    background-color: #dc7777;
-    width: 100%;
+    /* background-color: #dc7777; */
+    /* width: 100%; */
+    width: 90vw;
     display: flex;
     justify-content: space-between;
     max-width: 426px;
