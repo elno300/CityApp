@@ -18,6 +18,7 @@ let saveTemperaturesArray = localStorage.getItem('saveTemperaturesArray')
 
 // Denna körs en gång och lägger in det senast sparade värdet
 if(saveCity){
+
   cityInput.value = saveCity;
 
   // Functionen körs för att uppdatera med aktuell väderprognos
@@ -90,6 +91,8 @@ async function getWeather(){
     windContainer.innerHTML =`<p id="wind">${Math.round(windSpeed/3.6)} m/s`
     precipitationContainer.innerHTML =` <span id="precipitation">Precipitation:</span><span id="precipitation"> ${Math.round(precipitation)}</span>`
 
+
+    
     // =============== CHART ===================//
 
     console.log(cityInputValue, currentTemperature)
@@ -112,6 +115,7 @@ async function getWeather(){
       localStorage.setItem('saveTemperaturesArray', temperaturesArray)
       console.log(citiesArray, 'stads array');
 
+
       // Lägg element med function vid
       // document.getElementById("").addEventListener("click", () => {
       //   document.getElementById("myButton").focus();});
@@ -126,7 +130,7 @@ async function getWeather(){
           data: {
             labels: dateTime,
             datasets: [{
-              label: 'Temperature',
+              label: `Daily Temperature Variation in ${cityInputValue}`,
               data: temperatureArray,
               backgroundColor: 'white',
               borderColor: 'red',
@@ -146,15 +150,13 @@ async function getWeather(){
           }
         });
       } else {
-        // console.log('citiesArray:', citiesArray);
-        // console.log('temperaturesArray:', temperaturesArray);
 
-        // // Uppdatera befintligt diagram om det redan finns
-        // temperatureChart.data.labels = citiesArray;
-        // temperatureChart.data.datasets[0].data = temperaturesArray;
+        // Uppdatera befintligt diagram om det redan finns
+        temperatureChart.data.labels = dateTime;
+        temperatureChart.data.datasets[0].label =`Daily Temperature Variation in ${cityInputValue}`;
+        temperatureChart.data.datasets[0].data = temperatureArray;
+
         temperatureChart.update();
-
-
       }
     }
 
@@ -162,7 +164,6 @@ async function getWeather(){
 
     // weatherCode har fått en siffra som är kopplat till ett specifikt väderförhållande.
     // Beroende på weatherCodes värde så tilldelas varibeln weatherSymbol en bild, svg eller png som illustrerar det vädret.
-
     switch(weatherCode) {
       case 0:
         console.log('Clear sky')
