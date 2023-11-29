@@ -92,7 +92,7 @@ async function getWeather(){
     precipitationContainer.innerHTML =` <span id="precipitation">Precipitation:</span><span id="precipitation"> ${Math.round(precipitation)}</span>`
 
 
-    
+
     // =============== CHART ===================//
 
     console.log(cityInputValue, currentTemperature)
@@ -239,9 +239,12 @@ async function getWeather(){
 
   }
 
-  document.getElementById('chart-btn').addEventListener("click", showWeatherChart);
+  // document.getElementById('chart-btn').addEventListener("click", showWeatherChart);
   document.getElementById('weather-btn').addEventListener("click", showWeatherReport);
-
+  const chartBtn = document.getElementById('chart-btn');
+  const weatherBtn = document.getElementById('weather-btn')
+  chartBtn.addEventListener("click", showWeatherChart);
+  weatherBtn.style.border = '1px solid #FFF';
 
   let showWeather1 = document.getElementById('weather-report-container');
   // let showWeather2 = document.getElementById('wind-precipitation-wrapper');
@@ -250,11 +253,15 @@ async function getWeather(){
   function showWeatherChart() {
     showWeather1.style.display = 'none';
     addChart.style.display = 'block';
-
+    chartBtn.style.border = '1px solid #FFF';
+    // weatherBtn.style.border = 'none';
+    weatherBtn.style.border ='transparent'
   }
 
   function showWeatherReport() {
     showWeather1.style.display = 'block';
     addChart.style.display = 'none';
+    chartBtn.style.border = 'none';
+    weatherBtn.style.border = '1px solid #FFF';
 
   }

@@ -35,40 +35,40 @@
         <div class="background">
           <section class="transparent-window">
             <div id="weather-content-container">
-            <!-- <p>Type in a city to get a current weather report</p> -->
-            <div id="inputfield-btn-wrapper">
-              <input
-                type="text"
-                id="search-weather"
-                placeholder="City name.."
-              />
-              <button type="submit" id="weather-search-btn">
-                <i
-                  id="magnifying-glass"
-                  class="bi bi-search"
-                  aria-hidden="true"
-                ></i>
-              </button>
-            </div>
-            <div id="chart-weater-btn-container">
-              <button id="chart-btn">Chart</button>
-              <button id="weather-btn">Weather</button>
-            </div>
-            <div id="weather-report-container">
-              <div id="temp-svg-wrapper">
-                <div id="temperature-container"></div>
-                <div id="weather-symbol-container"></div>
+              <!-- <p>Type in a city to get a current weather report</p> -->
+              <div id="inputfield-btn-wrapper">
+                <input
+                  type="text"
+                  id="search-weather"
+                  placeholder="City name.."
+                />
+                <button type="submit" id="weather-search-btn">
+                  <i
+                    id="magnifying-glass"
+                    class="bi bi-search"
+                    aria-hidden="true"
+                  ></i>
+                </button>
               </div>
+              <div id="chart-weater-btn-container">
+                <button id="weather-btn">Weather</button>
+                <button id="chart-btn">Daily temperature</button>
+              </div>
+              <div id="weather-report-container">
+                <div id="temp-svg-wrapper">
+                  <div id="temperature-container"></div>
+                  <div id="weather-symbol-container"></div>
+                </div>
 
-              <div id="wind-precipitation-wrapper">
-                <div id="wind-container"></div>
-                <div id="precipitation-container"></div>
+                <div id="wind-precipitation-wrapper">
+                  <div id="wind-container"></div>
+                  <div id="precipitation-container"></div>
+                </div>
+              </div>
+              <div id="chart-container" style="display: none">
+                <canvas id="weather-chart"></canvas>
               </div>
             </div>
-            <div id="chart-container" style="display: none">
-              <canvas id="weather-chart"></canvas>
-            </div>
-          </div>
           </section>
         </div>
       </div>
