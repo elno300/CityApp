@@ -84,11 +84,11 @@ async function searchCities() {
 
                   <div id="city-list-btn-wrapper">
                       <div id="slide-down-on-arrow-down${i}" class="slide-down-on-arrow-down">
-                       <button data-city-index="${i}" data-city-id=${result[i].id} data-city-population=${result[i].population} id="edit-selected-city" onclick="editCity(this)">Edit</button>
+                       <button data-city-index="${i}" data-city-id=${result[i].id} data-city-population=${result[i].population} id="edit-selected-city${i}" class="edit-selected-city" onclick="editCity(this)">Edit</button>
                        <button data-city-id=${result[i].id} id="remove-selected-city" onclick="removeCity(this)">Remove</button>
                   </div>
 
-                  <svg data-city-index="${i}" data-city-id=${result[i].id} class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" onclick="handleArrowDownClick(this)">
+                  <svg data-city-index="${i}" data-city-id=${result[i].id} id="arrow-down${i}" class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" onclick="handleArrowDownClick(this)">
                   <path d="M6 9l6 6 6-6"/>
                   </svg>
                   </div>
@@ -111,11 +111,11 @@ async function searchCities() {
 
           <div id="city-list-btn-wrapper">
           <div id="slide-down-on-arrow-down${i}" class="slide-down-on-arrow-down">
-          <button data-city-index="${i}" data-city-id=${result.id} data-city-population=${result.population} id="edit-selected-city" onclick="editCity(this)">Edit</button>
+          <button data-city-index="${i}" data-city-id=${result.id} data-city-population=${result.population} id="edit-selected-city${i}" class="edit-selected-city" onclick="editCity(this)">Edit</button>
           <button data-city-index="${i}" data-city-id=${result.id} id="remove-selected-city" onclick="removeCity(this)">Remove</button>
           </div>
 
-          <svg data-city-index="${i}" data-city-id="${result.id}" class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" onclick="handleArrowDownClick(this)">
+          <svg data-city-index="${i}" data-city-id="${result.id}" id="arrow-down${i}" class="arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" onclick="handleArrowDownClick(this)">
           <path d="M6 9l6 6 6-6"/>
           </svg>
           </div>
@@ -124,6 +124,7 @@ async function searchCities() {
         }
         // Skriv ut städer eller stad
         listOfSelected.innerHTML = citiesToList;
+        listOfSelected.scrollIntoView({ behavior: 'smooth', block: 'center' })
 
     } catch (error) {
         console.error('Error getting city data', error);
@@ -209,6 +210,10 @@ function handleArrowDownClick(e){
     // Hämta det specifika slide-down-elementet för det aktuella cityInfoDiv-elementet
     let slideDownElement = whichCityInfoDiv.querySelector('#slide-down-on-arrow-down' + cityIndex);
 
+    // När pilknappen trycks så roterar den 180 grader
+    document.getElementById(`arrow-down${cityIndex}`).classList.toggle("rotate-arrow")
+
+
     // Uppdatera klassen för att visa slide-down-elementet
     slideDownElement.classList.toggle("slidein");
 
@@ -229,8 +234,6 @@ function handleArrowDownClick(e){
 
     let editButton = document.getElementById('edit-selected-city')
     editButton.innerHTML = 'Edit'
-
-
 
 }
 
@@ -301,7 +304,7 @@ function editCity(e) {
 
         // editCityNameInput.value = cityNameElement.innerText;
         // editCityPopulationInput.value = population;
-        let editButton = document.getElementById('edit-selected-city')
+        let editButton = document.getElementById(`edit-selected-city${cityIndex}`)
             editButton.innerHTML = 'Save'
 
     } else {

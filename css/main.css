@@ -1,6 +1,7 @@
 body{
     margin: 0;
     overscroll-behavior: none;
+    background-color: #eebcae;
 }
 
 /*==============================*/
@@ -53,7 +54,6 @@ header{
 
 nav{
     width: 100vw;
-    /* height: 67px; */
     padding: 00 5vw ;
     border-bottom: 1px solid rgb(0, 0, 0);
     display: flex;
@@ -65,6 +65,7 @@ nav h1{
     color: #393939;
     font-family: Kodchasan, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 24px;
+    /* font-size: 2rem; */
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -381,14 +382,23 @@ h2{
 }
 
 .arrow-down{
+    /* background: rgba(255, 255, 255, 0.52); */
+    backdrop-filter: blur(3px);
+    border-radius: 15px;
     align-self: flex-end;
     left: 290px;
     margin-bottom: 15px;
+    transition: transform 0.5s ease;
 }
 
 .arrow-down:hover{
     background-color: #FFF;
-    border-radius: 15px;
+    color: #FFF;
+    background: rgba(255, 255, 255, 0.52);
+}
+
+.rotate-arrow{
+    transform: rotate(180deg);
 }
 
 /* Div with more options */
@@ -411,7 +421,7 @@ h2{
     padding-bottom: 20px;
 }
 
-#edit-selected-city, #remove-selected-city{
+.edit-selected-city, #remove-selected-city{
     background: rgba(191, 127, 127, 0.52);
     backdrop-filter: blur(3px);
     height:fit-content;
@@ -422,15 +432,15 @@ h2{
     border: none;
 }
 
-#edit-selected-city:hover, #remove-selected-city:hover{
+.edit-selected-city:hover, #remove-selected-city:hover{
     font-size: medium;
     color: #FFF;
     border: solid 1px #FFF;
 }
 
 .edit {
-    cursor: pointer;
-    border-bottom: 1px dashed rgb(137, 19, 19);
+    /* cursor: pointer; */
+    /* border-bottom: 1px dashed rgb(137, 19, 19); */
     width: fit-content;
   }
 
@@ -498,7 +508,8 @@ h2{
     main{
         display: flex;
         background-color: #eebcae;
-        /* height: 100%; */
+        /* background-color: #535252; */
+        height: 91vh;
         align-items: center;
         /* justify-content: center; */
         /* justify-content: space-between; */

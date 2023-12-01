@@ -130,7 +130,7 @@ async function getWeather(){
           data: {
             labels: dateTime,
             datasets: [{
-              label: `Daily Temperature Variation in ${cityInputValue}`,
+              label: `Daily temperature variation in ${cityInputValue}`,
               data: temperatureArray,
               backgroundColor: 'white',
               borderColor: 'red',
