@@ -2,6 +2,7 @@ body{
     margin: 0;
     overscroll-behavior: none;
     background-color: #eebcae;
+    /* background-color: #ff9b80; */
 }
 
 /*==============================*/
@@ -9,6 +10,9 @@ body{
 #background-container{
     /* background: url("/media/img/stockholm.jpg"); */
     background-color: #eebcae;
+    background: rgb(255,136,146);
+    background: radial-gradient(circle, rgba(255,136,146,0.6685267857142857) 24%, rgba(255,145,38,0.7581626400560224) 45%, rgba(255,107,56,0.713344712885154) 65%, rgba(255,160,193,1) 85%, rgba(255,123,110,1) 100%);
+    /* background-color: #ff9b80; */
     /* background-color: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%); */
     background-size: cover;
     background-position: center;
@@ -320,13 +324,15 @@ legend{
 /* All info om städerna */
 #cities-list{
     border-radius: 24px;
-    border: 1px solid #FFF;
+    /* border: 1px solid #FFF;
     background: #FDE0D8;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset; */
+    /* background: #fde0d8ba; */
     padding: 5vw;
     display: none;
     width: 90vw;
     max-width: 300px;
+    /* max-width: 30vw; */
     /* height:500px; */
     height: fit-content;
     min-height: min-content;
@@ -507,7 +513,7 @@ h2{
 
     main{
         display: flex;
-        background-color: #eebcae;
+        /* background-color: #eebcae; */
         /* background-color: #535252; */
         height: 91vh;
         align-items: center;
@@ -552,6 +558,24 @@ h2{
         margin-top: 40px;
         height: 383px;
     }
+
+}
+@media  screen and (min-width: 1200px){
+
+    /* .cities-heading-wrapper{
+        background-color: azure;
+        margin-top: 50px;
+        width: 900px;
+        z-index: 2;
+        position: relative;
+    } */
+
+    .cities-heading1, .cities-heading2{
+
+        font-size: 7rem;
+        /* line-height:54px; */
+    }
+
 
 }
 
